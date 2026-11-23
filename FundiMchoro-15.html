@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luambano FundiMchoro – Vipimo na Michoro ya Nguo</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#e8f5e9,#e3f2fd);color:#333;margin:0;padding:10px;min-height:100vh}
+.container{max-width:1180px;margin:auto;background:#fff;padding:14px;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.1)}
+.brand{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:4px}
+.brand svg{flex-shrink:0}
+.brand-text h1{margin:0;color:#1b5e20;font-size:1.4rem;line-height:1.2}
+.brand-text .tag{font-size:.78rem;color:#607d8b}
+p.subtitle{text-align:center;color:#607d8b;margin:0 0 8px;font-size:.82rem}
+.panel-card{background:#fafafa;border:1px solid #e0e0e0;border-radius:8px;padding:8px;margin-bottom:6px}
+.panel-card > summary,.acc-title{font-size:11px;font-weight:700;color:#1b5e20;cursor:pointer;list-style:none;display:flex;align-items:center;gap:4px}
+.panel-card > summary::-webkit-details-marker{display:none}
+.panel-card[open]{background:#fff}
+.toolbar{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:10px;padding:8px;background:#f1f8e9;border-radius:8px;border:1px solid #c8e6c9}
+.toolbar button,.toolbar select{padding:6px 10px;border:1.5px solid #a5d6a7;border-radius:6px;background:#fff;font-size:11.5px;font-weight:600;color:#1b5e20;cursor:pointer}
+.toolbar button:hover{background:#e8f5e9}
+.toolbar button.accent{background:#2e7d32;color:#fff;border-color:#1b5e20}
+.toolbar .sep{width:1px;background:#a5d6a7;margin:0 2px}
+.main-grid{display:grid;grid-template-columns:250px 1fr;gap:12px}
+@media(max-width:920px){.main-grid{grid-template-columns:1fr}}
+.left-panel{display:flex;flex-direction:column;gap:4px;max-height:92vh;overflow-y:auto;padding-right:4px}
+.form-group{margin-bottom:3px}
+label{display:block;font-weight:600;margin-bottom:1px;font-size:11px;color:#37474f}
+input,select{width:100%;padding:5px 8px;border:1.5px solid #cfd8dc;border-radius:5px;font-size:12.5px}
+input:focus,select:focus{outline:none;border-color:#2e7d32;box-shadow:0 0 0 2px rgba(46,125,50,.15)}
+.section-title{font-size:9.5px;font-weight:700;color:#2e7d32;text-transform:uppercase;letter-spacing:.3px;margin:5px 0 2px;padding-bottom:1px;border-bottom:1px solid #c8e6c9}
+.hidden{display:none!important}
+button.primary{width:100%;padding:9px;background:linear-gradient(135deg,#2e7d32,#43a047);color:#fff;border:none;border-radius:7px;font-size:13.5px;font-weight:700;cursor:pointer;margin-top:3px}
+button.primary:hover{box-shadow:0 3px 10px rgba(46,125,50,.35)}
+.btn-row{display:flex;gap:5px;margin-top:4px}
+.btn-row button{flex:1;padding:7px;border-radius:6px;font-size:11.5px;font-weight:600;cursor:pointer;border:1.5px solid #90caf9;background:#e3f2fd;color:#0d47a1}
+.btn-row button.green{border-color:#a5d6a7;background:#e8f5e9;color:#1b5e20}
+.pieces-box{background:#f1f8e9;border-radius:8px;padding:6px;border:1px solid #c8e6c9}
+.pieces-box h3{margin:0 0 4px;font-size:12px;color:#1b5e20}
+.piece-btn{display:block;width:100%;text-align:left;padding:6px 8px;margin-bottom:3px;background:#fff;border:1.5px solid #a5d6a7;border-radius:5px;font-size:12px;font-weight:600;color:#2e7d32;cursor:pointer}
+.piece-btn:hover{background:#e8f5e9;border-color:#2e7d32}
+.piece-btn.active{background:#2e7d32;color:#fff;border-color:#1b5e20}
+.piece-btn small{display:block;font-weight:400;font-size:10px;opacity:.85;margin-top:1px}
+.fabric-box{background:#fff3e0;border:1px solid #ffcc80;border-radius:8px;padding:8px;margin-top:6px;font-size:12px}
+.fabric-box strong{color:#e65100}
+.profile-box{background:#e8eaf6;border:1px solid #9fa8da;border-radius:8px;padding:6px;margin-top:6px;font-size:11.5px}
+.unit-badge{display:inline-block;background:#2e7d32;color:#fff;padding:1px 6px;border-radius:4px;font-size:10px;margin-left:4px}
+.size-chart{background:#fafafa;border:1px solid #b0bec5;border-radius:8px;padding:8px;margin-top:6px;font-size:11px;max-height:240px;overflow:auto}
+.size-chart table{width:100%;border-collapse:collapse;font-size:10.5px}
+.size-chart th,.size-chart td{padding:3px 4px;border-bottom:1px solid #e0e0e0;text-align:center}
+.size-chart th{background:#e8f5e9;color:#1b5e20;position:sticky;top:0}
+.size-chart tr:hover{background:#fff8e1;cursor:pointer}
+.size-chart .chart-tabs{display:flex;gap:4px;margin-bottom:6px;flex-wrap:wrap}
+.size-chart .chart-tabs button{padding:4px 8px;font-size:10.5px;border:1px solid #90caf9;border-radius:4px;background:#fff;color:#1565c0;cursor:pointer}
+.size-chart .chart-tabs button.active{background:#1565c0;color:#fff}
+@media print{
+  body{background:#fff;padding:0}
+  .left-panel,.toolbar,.measure-guide,.subtitle,.click-hint,.size-chart,.profile-box,.fabric-box{display:none!important}
+  .main-grid{grid-template-columns:1fr}
+  .container{box-shadow:none;padding:0}
+  canvas{max-width:100%!important}
+}
+.right-panel{display:flex;flex-direction:column}
+.canvas-box{border:2px dashed #a5d6a7;border-radius:10px;padding:8px;text-align:center;background:#fafafa;min-height:440px}
+canvas{max-width:100%;background:#fffef7;border:1px solid #e0e0e0;border-radius:6px}
+.piece-title{text-align:center;font-weight:700;color:#1b5e20;font-size:14px;margin-bottom:4px}
+.vipimo-detail{margin-top:10px;background:#e8f5e9;padding:10px 12px;border-radius:9px;border-left:5px solid #2e7d32;font-size:13px;line-height:1.45}
+.vipimo-detail h4{margin:0 0 6px;color:#1b5e20;font-size:13.5px}
+.vipimo-detail table{width:100%;border-collapse:collapse;font-size:12.5px}
+.vipimo-detail td{padding:3px 5px;border-bottom:1px solid #c8e6c9}
+.vipimo-detail td:first-child{font-weight:600;color:#37474f;width:55%}
+.vipimo-detail td:last-child{color:#c62828;font-weight:700}
+.note{margin-top:7px;padding:6px 8px;background:#fff8e1;border-radius:6px;font-size:11.5px;color:#5d4037}
+.click-hint{text-align:center;font-size:11.5px;color:#78909c;margin:4px 0}
+.measure-guide{background:#e3f2fd;border-radius:9px;padding:10px 12px;border-left:4px solid #1565c0;font-size:12px;line-height:1.5;margin-top:8px}
+.measure-guide h4{margin:0 0 6px;color:#0d47a1;font-size:13px}
+.measure-guide ol{margin:0;padding-left:18px}
+.measure-guide li{margin-bottom:4px}
+.tabs{display:flex;gap:4px;margin-bottom:8px;flex-wrap:wrap}
+.tab-btn{padding:6px 10px;border:1.5px solid #90caf9;background:#fff;border-radius:6px;font-size:11.5px;font-weight:600;color:#1565c0;cursor:pointer}
+.tab-btn.active{background:#1565c0;color:#fff;border-color:#0d47a1}
+.fabric-note{background:#fce4ec;border-radius:8px;padding:8px 10px;font-size:11.5px;color:#880e4f;margin-top:6px;border-left:4px solid #c2185b}
+.highlight-box{background:#fff3e0;border:2px solid #ef6c00;border-radius:8px;padding:8px 10px;margin-top:8px;font-size:12.5px}
+.highlight-box strong{color:#e65100}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="brand">
+  <svg width="56" height="56" viewBox="0 0 64 64" aria-label="Luambano FundiMchoro logo">
+    <defs>
+      <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#1b5e20"/>
+        <stop offset="100%" stop-color="#43a047"/>
+      </linearGradient>
+    </defs>
+    <circle cx="32" cy="32" r="31" fill="url(#lg)"/>
+    <!-- ruler -->
+    <rect x="9" y="44" width="46" height="8" rx="1.5" fill="#fff"/>
+    <g stroke="#1b5e20" stroke-width="1.15">
+      <line x1="13" y1="44" x2="13" y2="49"/><line x1="17" y1="44" x2="17" y2="47"/>
+      <line x1="21" y1="44" x2="21" y2="49"/><line x1="25" y1="44" x2="25" y2="47"/>
+      <line x1="29" y1="44" x2="29" y2="49"/><line x1="33" y1="44" x2="33" y2="47"/>
+      <line x1="37" y1="44" x2="37" y2="49"/><line x1="41" y1="44" x2="41" y2="47"/>
+      <line x1="45" y1="44" x2="45" y2="49"/><line x1="49" y1="44" x2="49" y2="47"/>
+      <line x1="53" y1="44" x2="53" y2="49"/>
+    </g>
+    <!-- scissors -->
+    <g fill="none" stroke="#fff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="22" cy="20" r="5"/>
+      <circle cx="36" cy="20" r="5"/>
+      <path d="M26.5 23.5 L40 40"/>
+      <path d="M31.5 23.5 L18 40"/>
+      <path d="M40 40 L46 47"/>
+      <path d="M18 40 L12 47"/>
+    </g>
+  </svg>
+  <div class="brand-text">
+    <h1>Luambano FundiMchoro</h1>
+    <div class="tag">Vipimo • Michoro • Kukata nguo • KATA / SHONA</div>
+  </div>
+</div>
+<p class="subtitle">App ya fundi / tailor – hifadhi wateja, size S–XXL, pattern kwa kitambaa</p>
+
+<div class="toolbar">
+  <select id="unitSelect" onchange="toggleUnit()" title="Units">
+    <option value="in">Inchi (in)</option>
+    <option value="cm">Sentimita (cm)</option>
+  </select>
+  <select id="fitSelect" onchange="updateAll()" title="Fit / Ease">
+    <option value="close">Fit: Close</option>
+    <option value="regular" selected>Fit: Regular</option>
+    <option value="loose">Fit: Loose</option>
+  </select>
+  <select id="sizePreset" onchange="applyPreset()">
+    <option value="">Size (kimataifa)...</option>
+    <option value="S">S</option>
+    <option value="M">M</option>
+    <option value="L">L</option>
+    <option value="XL">XL</option>
+    <option value="XXL">XXL</option>
+  </select>
+  <span class="sep"></span>
+  <button onclick="saveProfile()" title="Hifadhi mteja">💾 Hifadhi</button>
+  <button onclick="window.print()" title="Print pattern">🖨️ Print</button>
+  <button class="accent" onclick="downloadPNG()" title="Download image">⬇️ PNG</button>
+</div>
+
+<div class="main-grid">
+<div class="left-panel">
+<div class="form-group">
+<label>Aina ya Nguo:</label>
+<select id="ainaNguo" onchange="badilishaAina()">
+<option value="suruali">Suruali (Trousers)</option>
+<option value="kaptula">Kaptula (Shorts)</option>
+<option value="shirt">Shirt la Shule (Mikono Mifupi)</option>
+<option value="gauni">Gauni / Blauzi</option>
+<option value="sketi">Sketi</option>
+</select>
+</div>
+
+<div class="section-title">👤 Mteja / Profile</div>
+<div class="form-group">
+<label>Chagua mteja aliyehifadhiwa:</label>
+<select id="savedSelect" onchange="loadFromSelect()">
+  <option value="">— Mteja mpya / chagua —</option>
+</select>
+</div>
+<div class="form-group">
+<label>Jina la mteja (andika au hariri):</label>
+<div style="display:flex;gap:4px;align-items:center">
+  <input type="text" id="profileName" placeholder="mf. Mama Asha, John..." value="" style="flex:1">
+  <button type="button" onclick="renameProfile()" title="Badilisha jina" style="padding:5px 8px;border:1.5px solid #7e57c2;background:#ede7f6;color:#4527a0;border-radius:5px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap">✏️ Hariri jina</button>
+</div>
+</div>
+<div class="form-group">
+<label>Namba ya simu:</label>
+<input type="tel" id="profilePhone" placeholder="mf. 0712 345 678" value="">
+</div>
+<div class="form-group">
+<label>Anuani / Mahali:</label>
+<input type="text" id="profileAddress" placeholder="mf. Mwanza, Nyamagana..." value="">
+</div>
+<div class="form-group">
+<label>Anza na size ya kimataifa:</label>
+<select id="sizePreset2" onchange="document.getElementById('sizePreset').value=this.value; applyPreset();">
+  <option value="">Chagua S / M / L / XL / XXL...</option>
+  <option value="S">S (Small)</option>
+  <option value="M">M (Medium)</option>
+  <option value="L">L (Large)</option>
+  <option value="XL">XL</option>
+  <option value="XXL">XXL</option>
+</select>
+</div>
+<p style="font-size:10.5px;color:#546e7a;margin:2px 0 6px">1️⃣ Size → 2️⃣ Hariri vipimo → 3️⃣ Jina → 4️⃣ Hifadhi &nbsp;|&nbsp; <b>✏️ Hariri jina</b> = badilisha jina la mteja aliyehifadhiwa</p>
+
+<div class="section-title">Vipimo vya Msingi <span class="unit-badge" id="unitBadge">in</span></div>
+<div class="form-group"><label>Mabega (Shoulder):</label><input type="number" id="mabega" value="15" step="0.5" onchange=""></div>
+<div class="form-group"><label>Kifua / Chest:</label><input type="number" id="kifua" value="36" step="0.5" onchange=""></div>
+<div class="form-group"><label>Kiuno (Waist):</label><input type="number" id="kiuno" value="30" step="0.5" onchange=""></div>
+<div class="form-group"><label>Hipsi (Hips):</label><input type="number" id="hipsi" value="40" step="0.5" onchange=""></div>
+<div class="form-group"><label id="labelUrefu">Urefu:</label><input type="number" id="urefu" value="40" step="0.5" onchange=""></div>
+
+<div id="vipimoShirt" class="hidden">
+<div class="section-title">Shingo & Mkono</div>
+<div class="form-group"><label>Shingo Mbele:</label><input type="number" id="shingoMbele" value="7.5" step="0.25" onchange=""></div>
+<div class="form-group"><label>Shingo Nyuma:</label><input type="number" id="shingoNyuma" value="7.5" step="0.25" onchange=""></div>
+<div class="form-group"><label>Mzunguko wa Kwapa (Armhole):</label><input type="number" id="kwapa" value="17" step="0.5" onchange=""></div>
+<div class="form-group"><label>Urefu wa Mkono:</label><input type="number" id="urefuMkono" value="8" step="0.5" onchange=""></div>
+<div class="form-group"><label>Bicep (juu ya mkono):</label><input type="number" id="bicep" value="13" step="0.5" onchange=""></div>
+<div class="form-group"><label>Wrist / Cuff:</label><input type="number" id="wrist" value="7.5" step="0.25" onchange=""></div>
+<div class="form-group"><label>Across Back (upana nyuma):</label><input type="number" id="acrossBack" value="14.5" step="0.25" onchange=""></div>
+<div class="form-group"><label>Armhole Depth:</label><input type="number" id="armholeDepth" value="8.5" step="0.25" onchange=""></div>
+</div>
+
+<div id="vipimoMiguu">
+<div class="section-title">Vipimo vya Miguu + Fly + Mifuko</div>
+<div class="form-group"><label>Inseam (ndani ya paja):</label><input type="number" id="inseam" value="30" step="0.5" onchange=""></div>
+<div class="form-group"><label>Crotch Depth (Rise):</label><input type="number" id="crotch" value="10" step="0.5" onchange=""></div>
+<div class="form-group"><label>Mzunguko wa Paja (Thigh):</label><input type="number" id="paja" value="24" step="0.5" onchange=""></div>
+<div class="form-group"><label>Mzunguko wa Goti (Knee):</label><input type="number" id="goti" value="16" step="0.5" onchange=""></div>
+<div class="form-group"><label>Urefu hadi Goti (Waist to Knee):</label><input type="number" id="urefuGoti" value="22" step="0.5" onchange=""></div>
+<div class="form-group"><label>Upana wa Chini (Hem / Bottom):</label><input type="number" id="hemWidth" value="16" step="0.5" onchange=""></div>
+<div class="form-group"><label>Urefu wa Fly (Fraizi):</label><input type="number" id="flyLen" value="7" step="0.5" onchange=""></div>
+<div class="form-group"><label>Waist to Hip (urefu):</label><input type="number" id="waistToHip" value="8" step="0.25" onchange=""></div>
+</div>
+
+<div class="form-group"><label>Posho ya Kushonea:</label><input type="number" id="posho" value="0.75" step="0.25" onchange=""></div>
+<div class="form-group"><label>Upana wa Kitambaa:</label>
+<select id="fabricWidth" onchange="updateFabric()">
+<option value="45">45" (114 cm)</option>
+<option value="60" selected>60" (152 cm)</option>
+<option value="36">36" (91 cm)</option>
+</select>
+</div>
+<button class="primary" onclick="updateAll()">Hesabu & Chora</button>
+<div class="btn-row">
+  <button class="green" onclick="saveProfile()">💾 Hifadhi</button>
+  <button onclick="clearAll()">🗑️ Futa</button>
+</div>
+
+<div class="fabric-box" id="fabricEstimate">
+  <strong>📏 Kitambaa kinachohitajika:</strong><br>
+  <span id="fabricText">Chagua aina & bonyeza Hesabu</span>
+</div>
+
+<div class="profile-box" id="profileList">
+  <strong>Profiles zilizohifadhiwa:</strong>
+  <div id="savedProfiles" style="margin-top:4px;font-size:11px;color:#3949ab">Hakuna bado...</div>
+</div>
+
+<details class="panel-card size-chart" id="sizeChartBox">
+  <summary>🌍 Vipimo vya Kimataifa (S–XXL) — gusa kufungua</summary>
+  <div class="chart-tabs" style="margin-top:6px">
+    <button class="active" onclick="showSizeChart('women',this)">Wanawake</button>
+    <button onclick="showSizeChart('men',this)">Wanaume</button>
+    <button onclick="showSizeChart('convert',this)">US/UK/EU</button>
+  </div>
+  <div id="sizeChartContent"></div>
+</details>
+
+<div class="pieces-box">
+<h3>📦 Vipande – Gusa kuona jinsi ya kukata</h3>
+<div id="piecesList"></div>
+</div>
+</div>
+
+<div class="right-panel">
+<div class="piece-title" id="pieceTitle">Chagua kipande</div>
+<div class="canvas-box"><canvas id="mchoroCanvas" width="640" height="580"></canvas></div>
+<p class="click-hint"><b>Kijani = KATA</b> &nbsp;|&nbsp; <b>Bluu = SHONA</b> &nbsp;|&nbsp; Vipimo vyote viko kwenye legend (kulia)</p>
+<div class="vipimo-detail" id="vipimoDetail"><h4>Vipimo vya Kipande</h4><p style="margin:0;color:#78909c">Chagua kipande...</p></div>
+
+<div class="measure-guide">
+<h4>📐 Jinsi ya Kukata kwenye Kitambaa</h4>
+<div class="tabs">
+<button class="tab-btn active" onclick="showGuide('suruali',this)">Suruali</button>
+<button class="tab-btn" onclick="showGuide('fly',this)">Fly + Mifuko</button>
+<button class="tab-btn" onclick="showGuide('shirt',this)">Shirt</button>
+<button class="tab-btn" onclick="showGuide('gauni',this)">Gauni</button>
+<button class="tab-btn" onclick="showGuide('sketi',this)">Sketi</button>
+</div>
+<div id="guideContent"></div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+let currentAina='suruali', V={}, currentUnit='in', lastPieceId='front', currentProfileKey='';
+
+/* International standard body measurements (inches) – mid-point of typical ranges */
+const PRESETS = {
+  /* Women-oriented defaults (common for tailor apps in East Africa too) */
+  S:  {mabega:14, kifua:34, kiuno:27, hipsi:36, urefu:38, inseam:29, crotch:9.5, paja:22, goti:15, urefuGoti:21, hemWidth:15, flyLen:6.5, waistToHip:7.5, shingoMbele:7, shingoNyuma:7, kwapa:16, urefuMkono:7.5, bicep:12, wrist:7, acrossBack:13.5, armholeDepth:8},
+  M:  {mabega:15, kifua:36, kiuno:30, hipsi:39, urefu:40, inseam:30, crotch:10, paja:24, goti:16, urefuGoti:22, hemWidth:16, flyLen:7, waistToHip:8, shingoMbele:7.5, shingoNyuma:7.5, kwapa:17, urefuMkono:8, bicep:13, wrist:7.5, acrossBack:14.5, armholeDepth:8.5},
+  L:  {mabega:16.5, kifua:39, kiuno:33, hipsi:42, urefu:41, inseam:31, crotch:10.5, paja:26, goti:17, urefuGoti:23, hemWidth:17, flyLen:7.5, waistToHip:8.5, shingoMbele:8, shingoNyuma:8, kwapa:18.5, urefuMkono:8.5, bicep:14.5, wrist:8, acrossBack:15.5, armholeDepth:9},
+  XL: {mabega:18, kifua:42, kiuno:36, hipsi:45, urefu:42, inseam:32, crotch:11, paja:28, goti:18, urefuGoti:24, hemWidth:18, flyLen:8, waistToHip:9, shingoMbele:8.5, shingoNyuma:8.5, kwapa:20, urefuMkono:9, bicep:16, wrist:8.5, acrossBack:16.5, armholeDepth:9.5},
+  XXL:{mabega:19.5, kifua:46, kiuno:40, hipsi:49, urefu:43, inseam:32, crotch:11.5, paja:30, goti:19, urefuGoti:24.5, hemWidth:19, flyLen:8.5, waistToHip:9.5, shingoMbele:9, shingoNyuma:9, kwapa:21.5, urefuMkono:9.5, bicep:17.5, wrist:9, acrossBack:17.5, armholeDepth:10}
+};
+
+/* Full international charts (body measurements in inches) */
+const INTL = {
+  women: [
+    {sz:'XS', us:'0–2', uk:'4–6', eu:'32–34', bust:32, waist:25, hip:34, note:'XS'},
+    {sz:'S',  us:'4–6', uk:'8–10', eu:'36–38', bust:34, waist:27, hip:36, note:'S'},
+    {sz:'M',  us:'8–10', uk:'12–14', eu:'40–42', bust:36, waist:29, hip:39, note:'M'},
+    {sz:'L',  us:'12–14', uk:'16–18', eu:'44–46', bust:39, waist:32, hip:42, note:'L'},
+    {sz:'XL', us:'16–18', uk:'20–22', eu:'48–50', bust:42, waist:35, hip:45, note:'XL'},
+    {sz:'XXL',us:'20–22', uk:'24–26', eu:'52–54', bust:45, waist:38, hip:48, note:'XXL'}
+  ],
+  men: [
+    {sz:'S',  us:'S/36', uk:'S', eu:'46', chest:36, waist:30, hip:36, neck:15, note:'S'},
+    {sz:'M',  us:'M/40', uk:'M', eu:'48–50', chest:39, waist:33, hip:39, neck:15.5, note:'M'},
+    {sz:'L',  us:'L/42', uk:'L', eu:'52', chest:42, waist:36, hip:42, neck:16.5, note:'L'},
+    {sz:'XL', us:'XL/44–46', uk:'XL', eu:'54–56', chest:45, waist:39, hip:45, neck:17.5, note:'XL'},
+    {sz:'XXL',us:'XXL/48', uk:'XXL', eu:'58', chest:48, waist:42, hip:48, neck:18.5, note:'XXL'}
+  ]
+};
+
+const EASE = { close: 0.25, regular: 0.75, loose: 1.5 };
+
+function toDisplay(val){
+  if(currentUnit==='cm') return +(val*2.54).toFixed(1);
+  return +(+val).toFixed(2);
+}
+function fromDisplay(val){
+  if(currentUnit==='cm') return +(val/2.54).toFixed(3);
+  return +val;
+}
+function unitLabel(){ return currentUnit==='cm'?'cm':'"'; }
+
+function getInputs(){
+  return {
+    mabega:+document.getElementById('mabega').value||15,
+    kifua:+document.getElementById('kifua').value||36,
+    kiuno:+document.getElementById('kiuno').value||30,
+    hipsi:+document.getElementById('hipsi').value||40,
+    urefu:+document.getElementById('urefu').value||40,
+    posho:+document.getElementById('posho').value||0.75,
+    shingoMbele:+document.getElementById('shingoMbele').value||7.5,
+    shingoNyuma:+document.getElementById('shingoNyuma').value||7.5,
+    kwapa:+document.getElementById('kwapa').value||17,
+    urefuMkono:+document.getElementById('urefuMkono').value||8,
+    bicep:+document.getElementById('bicep').value||13,
+    wrist:+document.getElementById('wrist')?.value||7.5,
+    acrossBack:+document.getElementById('acrossBack')?.value||14.5,
+    armholeDepth:+document.getElementById('armholeDepth')?.value||8.5,
+    inseam:+document.getElementById('inseam').value||30,
+    crotch:+document.getElementById('crotch').value||10,
+    paja:+document.getElementById('paja').value||24,
+    goti:+document.getElementById('goti')?.value||16,
+    urefuGoti:+document.getElementById('urefuGoti')?.value||22,
+    hemWidth:+document.getElementById('hemWidth').value||16,
+    flyLen:+document.getElementById('flyLen').value||7,
+    waistToHip:+document.getElementById('waistToHip')?.value||8
+  };
+}
+
+function calcValues(i){
+  const fit=document.getElementById('fitSelect')?.value||'regular';
+  const ease=EASE[fit]||0.75;
+  // use larger of posho and ease for body circumference quarters
+  const e=Math.max(i.posho, ease*0.35);
+  const shingoTotal=i.shingoMbele+i.shingoNyuma;
+  return {
+    nusuBega:+(i.mabega/2+0.5).toFixed(2),
+    roboKifua:+(i.kifua/4+e).toFixed(2),
+    roboKiuno:+(i.kiuno/4+e).toFixed(2),
+    roboHipsi:+(i.hipsi/4+e).toFixed(2),
+    urefuKamili:+(i.urefu+1.5).toFixed(2),
+    sleeveW:+((i.kwapa/2)+i.posho+0.5).toFixed(2),
+    sleeveL:+(i.urefuMkono+1.5).toFixed(2),
+    collarL:+(shingoTotal+1.5).toFixed(2),
+    shingoMbele:+i.shingoMbele.toFixed(2),
+    shingoNyuma:+i.shingoNyuma.toFixed(2),
+    shingoTotal:+shingoTotal.toFixed(2),
+    kwapa:+i.kwapa.toFixed(2),
+    bicep:+i.bicep.toFixed(2),
+    wrist:+(+i.wrist).toFixed(2),
+    acrossBack:+(+i.acrossBack).toFixed(2),
+    armholeDepth:+(+i.armholeDepth).toFixed(2),
+    thighW:+((i.paja/2)+i.posho).toFixed(2),
+    kneeW:+((i.goti/2)+i.posho).toFixed(2),
+    hemW:+((i.hemWidth/2)+i.posho).toFixed(2),
+    inseamFull:+(i.inseam+1.5).toFixed(2),
+    crotchFront:+(i.crotch+0.5).toFixed(2),
+    crotchBack:+(i.crotch+1.5).toFixed(2),
+    flyLen:+i.flyLen.toFixed(2),
+    waistToHip:+(+i.waistToHip).toFixed(2),
+    urefuGoti:+(+i.urefuGoti).toFixed(2),
+    posho:i.posho,
+    ease:ease,
+    fit:fit,
+    raw:i
+  };
+}
+
+function getPieces(aina){
+  const p={
+    suruali:[
+      {id:'front',name:'Kipande cha Mbele',desc:'Kata 2 – ona Kiuno,Hips,Fly,Hem'},
+      {id:'back',name:'Kipande cha Nyuma',desc:'Kata 2 – ona Hips,Crotch'},
+      {id:'waistband',name:'Mkanda wa Kiuno',desc:'Kata 1'},
+      {id:'fly',name:'Fly / Fraizi Facing',desc:'Kata 1–2'},
+      {id:'pocket',name:'Mifuko (Side + Back)',desc:'Kata 2–4'}
+    ],
+    kaptula:[
+      {id:'front',name:'Kipande cha Mbele',desc:'Kata 2 – Kiuno,Hips,Hem'},
+      {id:'back',name:'Kipande cha Nyuma',desc:'Kata 2'},
+      {id:'waistband',name:'Mkanda wa Kiuno',desc:'Kata 1'},
+      {id:'pocket',name:'Mifuko',desc:'Kata 2–4'}
+    ],
+    shirt:[
+      {id:'front',name:'Kipande cha Mbele',desc:'Kata 1 kimekunjwa au 2'},
+      {id:'back',name:'Kipande cha Nyuma',desc:'Kata 1 kimekunjwa'},
+      {id:'sleeve',name:'Mkono Mfupi',desc:'Kata 2'},
+      {id:'collar',name:'Collar + Stand',desc:'Kata 2+1'},
+      {id:'yoke',name:'Yoke',desc:'Kata 1 au 2'}
+    ],
+    gauni:[
+      {id:'front',name:'Kipande cha Mbele',desc:'Kata 1 kimekunjwa'},
+      {id:'back',name:'Kipande cha Nyuma',desc:'Kata 2'},
+      {id:'sleeve',name:'Mikono',desc:'Kata 2'},
+      {id:'waistband',name:'Mkanda',desc:'Kata 1'}
+    ],
+    sketi:[
+      {id:'front',name:'Kipande cha Mbele',desc:'Kata 1 kimekunjwa'},
+      {id:'back',name:'Kipande cha Nyuma',desc:'Kata 2'},
+      {id:'waistband',name:'Mkanda wa Kiuno',desc:'Kata 1'}
+    ]
+  };
+  return p[aina]||p.suruali;
+}
+
+function showGuide(type,btn){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  const el=document.getElementById('guideContent');
+  if(type==='suruali'){
+    el.innerHTML=`<ol>
+      <li><b>Kiuno:</b> Pima kuzunguka kiuno. Pattern = Kiuno÷4 + posho.</li>
+      <li><b>Hips:</b> Sehemu nene zaidi. Pattern = Hips÷4 + posho.</li>
+      <li><b>Waist→Hip, Crotch, Inseam, Paja, Goti, Hem, Fly</b> – yote yanaonekana kwenye mchoro.</li>
+      <li><b>KATA (kijani):</b> Mstari wa nje – kata hapa.</li>
+      <li><b>SHONA / UZI (bluu):</b> Mstari wa ndani – hapa uzi unapita (finished edge).</li>
+      <li><b>Notches:</b> Kiuno • Hip • Crotch • Knee • Hem • Fly</li>
+    </ol>
+    <div class="fabric-note">Kijani = KATA &nbsp;|&nbsp; Bluu = SHONA (uzi) &nbsp;|&nbsp; Legend ina vipimo vyote.</div>`;
+  } else if(type==='fly'){
+    el.innerHTML=`<ol>
+      <li><b>Fly:</b> 6–8". Mstari kutoka kiuno chini (mbele).</li>
+      <li><b>Fly Facing:</b> 1.5–2" × urefu – kuimarisha zipu. Kata 1–2.</li>
+      <li><b>Side Pocket:</b> 6–7" × 6–7". Weka kando ya mbele.</li>
+      <li><b>Back Pocket:</b> 5.5–6" × 6". Weka nyuma juu ya hips.</li>
+      <li><b>KATA</b> = mstari kijani &nbsp;|&nbsp; <b>SHONA</b> = mstari bluu (uzi).</li>
+    </ol>
+    <div class="fabric-note">Fly + mifuko vinaonyeshwa na vipimo na sehemu za kukata/kushona.</div>`;
+  } else if(type==='shirt'){
+    el.innerHTML=`<ol>
+      <li><b>Bega, Shingo Mbele/Nyuma, Chest, Across Back, Armhole, Kwapa, Bicep, Wrist</b></li>
+      <li><b>KATA (kijani):</b> Mstari wa nje – kata pattern hapa.</li>
+      <li><b>SHONA (bluu):</b> Mstari wa ndani – hapa uzi unapita baada ya posho.</li>
+      <li><b>Kunja:</b> Center Front / Center Back (mstari wa bluu uliokatika).</li>
+      <li><b>Mkono:</b> Pima kwapa, bicep, wrist, urefu. Kata 2.</li>
+      <li><b>Collar + Stand:</b> Shingo jumla + posho. Kata 2+1.</li>
+    </ol>
+    <div class="fabric-note">Kila kipande kina Legend + mistari ya KATA na SHONA (uzi).</div>`;
+  } else if(type==='gauni'){
+    el.innerHTML=`<ol>
+      <li><b>Bega, Shingo, Chest, Kiuno, Hips, Urefu</b> – yote kwenye Legend.</li>
+      <li><b>KATA:</b> Mstari kijani wa nje.</li>
+      <li><b>SHONA / UZI:</b> Mstari bluu wa ndani (posho imejumuishwa).</li>
+      <li><b>Kunja CF:</b> Mbele inakunjwa katikati.</li>
+      <li>Mikono na waistband vinafuata kanuni ile ile ya KATA/SHONA.</li>
+    </ol>
+    <div class="fabric-note">Gauni: mistari ya kukata na kupita uzi yanaonekana wazi.</div>`;
+  } else {
+    el.innerHTML=`<ol>
+      <li><b>Kiuno 1/4 + posho, Hips 1/4 + posho, Urefu</b></li>
+      <li><b>KATA (kijani):</b> Mstari wa nje – kata hapa.</li>
+      <li><b>SHONA (bluu):</b> Mstari wa ndani – sehemu ya kupita uzi.</li>
+      <li><b>Kunja:</b> Center Front (mstari wa bluu).</li>
+      <li>Waistband: kata 1, kunja katikati, shona juu ya kiuno.</li>
+    </ol>
+    <div class="fabric-note">Sketi: sehemu za kukata na kushona (uzi) zinaonyeshwa.</div>`;
+  }
+}
+
+function clearCanvas(){
+  const c=document.getElementById('mchoroCanvas'), ctx=c.getContext('2d');
+  ctx.clearRect(0,0,c.width,c.height);
+  ctx.fillStyle='#fffef7'; ctx.fillRect(0,0,c.width,c.height);
+  return {canvas:c,ctx};
+}
+
+function drawDim(ctx,x1,y1,x2,y2,label,offset,color){
+  offset=offset===undefined?14:offset; color=color||'#c62828';
+  ctx.strokeStyle=color; ctx.fillStyle=color; ctx.lineWidth=1.2; ctx.setLineDash([]);
+  ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+  const a=Math.atan2(y2-y1,x2-x1), t=4.5;
+  ctx.beginPath();
+  ctx.moveTo(x1+Math.sin(a)*t,y1-Math.cos(a)*t); ctx.lineTo(x1-Math.sin(a)*t,y1+Math.cos(a)*t);
+  ctx.moveTo(x2+Math.sin(a)*t,y2-Math.cos(a)*t); ctx.lineTo(x2-Math.sin(a)*t,y2+Math.cos(a)*t);
+  ctx.stroke();
+  if(label){
+    const mx=(x1+x2)/2, my=(y1+y2)/2;
+    const lx=mx+Math.sin(a)*offset, ly=my-Math.cos(a)*offset;
+    ctx.font='bold 10px Arial';
+    const tw=ctx.measureText(label).width;
+    ctx.fillStyle='rgba(255,254,247,0.92)';
+    ctx.fillRect(lx-tw/2-2, ly-8, tw+4, 12);
+    ctx.fillStyle=color;
+    ctx.textAlign='center';
+    ctx.fillText(label, lx, ly);
+    ctx.textAlign='left';
+  }
+}
+
+function L(ctx,text,x,y,color,size){ ctx.fillStyle=color||'#1565c0'; ctx.font=(size||'10px')+' Arial'; ctx.fillText(text,x,y); }
+function BL(ctx,text,x,y,color){ ctx.fillStyle=color||'#c62828'; ctx.font='bold 11px Arial'; ctx.fillText(text,x,y); }
+
+function grain(ctx,x,y1,y2){
+  ctx.strokeStyle='#7b1fa2'; ctx.lineWidth=1.1;
+  ctx.beginPath(); ctx.moveTo(x,y1); ctx.lineTo(x,y2); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x,y1); ctx.lineTo(x-3.5,y1+7); ctx.lineTo(x+3.5,y1+7); ctx.closePath(); ctx.fillStyle='#7b1fa2'; ctx.fill();
+  ctx.beginPath(); ctx.moveTo(x,y2); ctx.lineTo(x-3.5,y2-7); ctx.lineTo(x+3.5,y2-7); ctx.closePath(); ctx.fill();
+  ctx.font='8px Arial'; ctx.fillStyle='#7b1fa2'; ctx.fillText('GRAIN',x+5,(y1+y2)/2);
+}
+
+/* Legend box – all measurements in one clean place (no overlap) */
+function drawLegend(ctx, title, items, x, y){
+  const lineH=15, pad=8, w=155;
+  const h=pad*2 + 16 + items.length*lineH;
+  ctx.fillStyle='rgba(255,255,255,0.96)';
+  ctx.strokeStyle='#2e7d32'; ctx.lineWidth=1.5;
+  ctx.fillRect(x,y,w,h);
+  ctx.strokeRect(x,y,w,h);
+  ctx.fillStyle='#1b5e20'; ctx.font='bold 11px Arial';
+  ctx.fillText(title, x+pad, y+14);
+  ctx.font='10px Arial';
+  items.forEach((it,i)=>{
+    ctx.fillStyle=it[2]||'#333';
+    ctx.fillText(it[0], x+pad, y+28+i*lineH);
+    ctx.fillStyle='#c62828'; ctx.font='bold 10px Arial';
+    ctx.fillText(it[1], x+pad+95, y+28+i*lineH);
+    ctx.font='10px Arial';
+  });
+}
+
+/* CUT (outer solid) + SEW (inner dashed) legend key */
+function drawCutSewKey(ctx,x,y){
+  ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2.2; ctx.setLineDash([]);
+  ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+28,y); ctx.stroke();
+  L(ctx,'KATA (Cut)',x+32,y+3,'#1b5e20','9px');
+  ctx.strokeStyle='#1565c0'; ctx.lineWidth=1.3; ctx.setLineDash([5,3]);
+  ctx.beginPath(); ctx.moveTo(x,y+14); ctx.lineTo(x+28,y+14); ctx.stroke();
+  ctx.setLineDash([]);
+  L(ctx,'SHONA (Sew)',x+32,y+17,'#1565c0','9px');
+}
+
+/* ========== SURUALI / KAPTULA FRONT ========== */
+function drawPantFront(ctx,V,isShort){
+  const s=isShort?9.8:6.4;
+  const ox=70, oy=28;
+  const waistW=V.roboKiuno*s;
+  const hipW=V.roboHipsi*s;
+  const hemW=V.hemW*s;
+  const kneeW=V.kneeW*s;
+  const crotchY=oy+V.crotchFront*s*0.88;
+  const flyY=oy+V.flyLen*s*0.82;
+  const hipY=oy+(+V.waistToHip)*s*0.82;
+  const hemY=oy+V.raw.urefu*s*0.65;
+  const kneeY=oy+(+V.urefuGoti)*s*0.65;
+  const sa=V.posho*s; // seam allowance visual
+
+  // Fabric area
+  ctx.strokeStyle='#d7ccc8'; ctx.setLineDash([3,3]);
+  ctx.strokeRect(ox-35,oy-16, hipW+95, hemY-oy+55);
+  ctx.setLineDash([]);
+  L(ctx,'KITAMBAA WAZI',ox-28,oy-20,'#8d6e63','9px');
+
+  // === CUT LINE (outer solid green) ===
+  ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2.3;
+  ctx.beginPath();
+  ctx.moveTo(ox, oy+2);
+  ctx.lineTo(ox+waistW, oy+2);
+  ctx.lineTo(ox+hipW+2, hipY);
+  ctx.lineTo(ox+Math.max(hipW,kneeW)+1, kneeY);
+  ctx.lineTo(ox+hemW+4, hemY);
+  ctx.lineTo(ox+5, hemY);
+  ctx.lineTo(ox+9, crotchY+8);
+  ctx.quadraticCurveTo(ox+3, crotchY, ox, oy+2);
+  ctx.closePath();
+  ctx.stroke();
+
+  // === SEW LINE (inner dashed blue) – shows finished edge after sewing ===
+  ctx.strokeStyle='#1565c0'; ctx.lineWidth=1.2; ctx.setLineDash([4,3]);
+  const inset=sa*0.7;
+  ctx.beginPath();
+  ctx.moveTo(ox+inset, oy+2+inset);
+  ctx.lineTo(ox+waistW-inset*0.3, oy+2+inset);
+  ctx.lineTo(ox+hipW+2-inset, hipY);
+  ctx.lineTo(ox+Math.max(hipW,kneeW)+1-inset, kneeY);
+  ctx.lineTo(ox+hemW+4-inset, hemY-inset);
+  ctx.lineTo(ox+5+inset, hemY-inset);
+  ctx.lineTo(ox+9+inset*0.5, crotchY+8);
+  ctx.quadraticCurveTo(ox+3+inset, crotchY, ox+inset, oy+2+inset);
+  ctx.closePath();
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Fly
+  ctx.strokeStyle='#e65100'; ctx.lineWidth=1.5; ctx.setLineDash([4,2]);
+  ctx.beginPath(); ctx.moveTo(ox, oy+2); ctx.lineTo(ox, flyY); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.strokeStyle='#e65100'; ctx.lineWidth=1.2;
+  ctx.beginPath(); ctx.moveTo(ox,oy+2); ctx.lineTo(ox-11,oy+2); ctx.lineTo(ox-9,flyY); ctx.lineTo(ox,flyY); ctx.stroke();
+
+  // Pocket mark
+  const pkX=ox+waistW*0.45, pkY=oy+12;
+  ctx.strokeStyle='#6a1b9a'; ctx.lineWidth=1.1; ctx.setLineDash([2,2]);
+  ctx.strokeRect(pkX, pkY, 4.2*s*0.28, 5*s*0.28);
+  ctx.setLineDash([]);
+  L(ctx,'P',pkX+3, pkY+12,'#6a1b9a','9px');
+
+  // Level guides (thin)
+  ctx.strokeStyle='#ef6c00'; ctx.lineWidth=0.8; ctx.setLineDash([3,3]);
+  ctx.beginPath(); ctx.moveTo(ox+2, hipY); ctx.lineTo(ox+hipW-2, hipY); ctx.stroke();
+  ctx.strokeStyle='#7b1fa2';
+  ctx.beginPath(); ctx.moveTo(ox+3, kneeY); ctx.lineTo(ox+kneeW+4, kneeY); ctx.stroke();
+  ctx.setLineDash([]);
+
+  grain(ctx, ox+hipW*0.38, oy+40, hemY-35);
+
+  // Dimension lines only (short labels) – carefully placed
+  drawDim(ctx, ox, oy-11, ox+waistW, oy-11, V.roboKiuno+'"', -11, '#c62828');
+  drawDim(ctx, ox+5, hemY+10, ox+hemW+4, hemY+10, V.hemW+'"', 11, '#2e7d32');
+  drawDim(ctx, ox-16, oy+2, ox-16, flyY, V.flyLen+'"', -13, '#e65100');
+  drawDim(ctx, ox+hipW+18, oy+2, ox+hipW+18, hemY, V.raw.urefu+'"', 13, '#1565c0');
+  drawDim(ctx, ox+14, oy+2, ox+14, crotchY, V.crotchFront+'"', 11, '#1565c0');
+
+  // CUT / SEW key
+  drawCutSewKey(ctx, ox+5, oy+36);
+
+  // Legend box – ALL measurements clean, no overlap
+  drawLegend(ctx, 'VIPIMO – MBELE', [
+    ['Kiuno 1/4', V.roboKiuno+'"', '#c62828'],
+    ['Hips 1/4', V.roboHipsi+'"', '#e65100'],
+    ['W → Hip', V.waistToHip+'"', '#ef6c00'],
+    ['Crotch', V.crotchFront+'"', '#1565c0'],
+    ['Inseam', V.inseamFull+'"', '#6a1b9a'],
+    ['Paja', V.thighW+'"', '#6a1b9a'],
+    ['Goti', V.kneeW+'"', '#7b1fa2'],
+    ['Hem', V.hemW+'"', '#2e7d32'],
+    ['Fly', V.flyLen+'"', '#e65100'],
+    ['Urefu', V.raw.urefu+'"', '#1565c0'],
+    ['Posho', V.posho+'"', '#5d4037']
+  ], ox+hipW+40, oy+20);
+
+  L(ctx, 'MBELE  •  Kata 2  •  Kitambaa WAZI', ox+5, hemY+32, '#1b5e20', '10px');
+  L(ctx, 'Notches: Kiuno • Hip • Crotch • Knee • Hem • Fly', ox+5, hemY+46, '#5d4037', '8px');
+}
+
+/* ========== BACK ========== */
+function drawPantBack(ctx,V,isShort){
+  const s=isShort?9.8:6.4;
+  const ox=70, oy=28;
+  const waistW=(+V.roboKiuno+0.35)*s;
+  const hipW=(+V.roboHipsi+0.9)*s;
+  const hemW=(+V.hemW+0.4)*s;
+  const kneeW=(+V.kneeW+0.3)*s;
+  const crotchY=oy+V.crotchBack*s*0.84;
+  const hipY=oy+(+V.waistToHip)*s*0.82;
+  const hemY=oy+V.raw.urefu*s*0.65;
+  const kneeY=oy+(+V.urefuGoti)*s*0.65;
+  const sa=V.posho*s;
+
+  ctx.strokeStyle='#d7ccc8'; ctx.setLineDash([3,3]);
+  ctx.strokeRect(ox-35,oy-16, hipW+95, hemY-oy+55);
+  ctx.setLineDash([]);
+  L(ctx,'KITAMBAA WAZI',ox-28,oy-20,'#8d6e63','9px');
+
+  // CUT line
+  ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2.3;
+  ctx.beginPath();
+  ctx.moveTo(ox, oy+2);
+  ctx.lineTo(ox+waistW, oy+2);
+  ctx.lineTo(ox+hipW+1, hipY);
+  ctx.lineTo(ox+Math.max(hipW,kneeW), kneeY);
+  ctx.lineTo(ox+hemW+3, hemY);
+  ctx.lineTo(ox+7, hemY);
+  ctx.lineTo(ox+11, crotchY+12);
+  ctx.quadraticCurveTo(ox+4, crotchY+2, ox, oy+2);
+  ctx.closePath();
+  ctx.stroke();
+
+  // SEW line
+  ctx.strokeStyle='#1565c0'; ctx.lineWidth=1.2; ctx.setLineDash([4,3]);
+  const inset=sa*0.7;
+  ctx.beginPath();
+  ctx.moveTo(ox+inset, oy+2+inset);
+  ctx.lineTo(ox+waistW-inset*0.3, oy+2+inset);
+  ctx.lineTo(ox+hipW+1-inset, hipY);
+  ctx.lineTo(ox+Math.max(hipW,kneeW)-inset, kneeY);
+  ctx.lineTo(ox+hemW+3-inset, hemY-inset);
+  ctx.lineTo(ox+7+inset, hemY-inset);
+  ctx.lineTo(ox+11+inset*0.4, crotchY+12);
+  ctx.quadraticCurveTo(ox+4+inset, crotchY+2, ox+inset, oy+2+inset);
+  ctx.closePath();
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Back pocket
+  const pkX=ox+waistW*0.25, pkY=oy+14;
+  ctx.strokeStyle='#6a1b9a'; ctx.lineWidth=1.1; ctx.setLineDash([2,2]);
+  ctx.strokeRect(pkX, pkY, 4*s*0.32, 4.6*s*0.28);
+  ctx.setLineDash([]);
+  L(ctx,'BP',pkX+4, pkY+11,'#6a1b9a','9px');
+
+  ctx.strokeStyle='#ef6c00'; ctx.lineWidth=0.8; ctx.setLineDash([3,3]);
+  ctx.beginPath(); ctx.moveTo(ox+2, hipY); ctx.lineTo(ox+hipW-2, hipY); ctx.stroke();
+  ctx.strokeStyle='#7b1fa2';
+  ctx.beginPath(); ctx.moveTo(ox+3, kneeY); ctx.lineTo(ox+kneeW+3, kneeY); ctx.stroke();
+  ctx.setLineDash([]);
+
+  grain(ctx, ox+hipW*0.36, oy+40, hemY-35);
+
+  drawDim(ctx, ox, oy-11, ox+waistW, oy-11, (+V.roboKiuno+0.35).toFixed(1)+'"', -11, '#c62828');
+  drawDim(ctx, ox+7, hemY+10, ox+hemW+3, hemY+10, (+V.hemW+0.4).toFixed(1)+'"', 11, '#2e7d32');
+  drawDim(ctx, ox+hipW+16, oy+2, ox+hipW+16, hemY, V.raw.urefu+'"', 13, '#1565c0');
+  drawDim(ctx, ox+14, oy+2, ox+14, crotchY, V.crotchBack+'"', 11, '#1565c0');
+
+  drawCutSewKey(ctx, ox+5, oy+36);
+
+  drawLegend(ctx, 'VIPIMO – NYUMA', [
+    ['Kiuno 1/4', (+V.roboKiuno+0.35).toFixed(1)+'"', '#c62828'],
+    ['Hips 1/4', (+V.roboHipsi+0.9).toFixed(1)+'"', '#e65100'],
+    ['W → Hip', V.waistToHip+'"', '#ef6c00'],
+    ['Crotch +1"', V.crotchBack+'"', '#1565c0'],
+    ['Paja', V.thighW+'"', '#6a1b9a'],
+    ['Goti', (+V.kneeW+0.3).toFixed(1)+'"', '#7b1fa2'],
+    ['Hem', (+V.hemW+0.4).toFixed(1)+'"', '#2e7d32'],
+    ['Urefu', V.raw.urefu+'"', '#1565c0'],
+    ['Posho', V.posho+'"', '#5d4037']
+  ], ox+hipW+38, oy+20);
+
+  L(ctx, 'NYUMA  •  Kata 2  •  Kitambaa WAZI', ox+5, hemY+32, '#1b5e20', '10px');
+  L(ctx, 'Crotch nyuma ni ndege zaidi (+1")', ox+5, hemY+46, '#5d4037', '8px');
+}
+
+/* ========== FLY FACING ========== */
+function drawFly(ctx,V){
+  const s=14;
+  const ox=160, oy=55;
+  const W=2.0*s, H=V.flyLen*s;
+
+  ctx.strokeStyle='#d7ccc8'; ctx.setLineDash([3,3]);
+  ctx.strokeRect(ox-40,oy-22, W+180, H+90);
+  ctx.setLineDash([]);
+  L(ctx,'KITAMBAA',ox-30,oy-26,'#8d6e63','9px');
+
+  // CUT
+  ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2.3;
+  ctx.beginPath();
+  ctx.moveTo(ox, oy); ctx.lineTo(ox+W, oy); ctx.lineTo(ox+W, oy+H); ctx.lineTo(ox, oy+H+6); ctx.closePath();
+  ctx.stroke();
+
+  // SEW
+  ctx.strokeStyle='#1565c0'; ctx.lineWidth=1.2; ctx.setLineDash([4,3]);
+  ctx.beginPath();
+  ctx.moveTo(ox+4, oy+4); ctx.lineTo(ox+W-4, oy+4); ctx.lineTo(ox+W-4, oy+H-2); ctx.lineTo(ox+4, oy+H+2); ctx.closePath();
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Zipper
+  ctx.strokeStyle='#e65100'; ctx.lineWidth=1.5; ctx.setLineDash([3,2]);
+  ctx.beginPath(); ctx.moveTo(ox+6, oy+6); ctx.lineTo(ox+6, oy+H-4); ctx.stroke();
+  ctx.setLineDash([]);
+
+  drawDim(ctx, ox-16, oy, ox-16, oy+H, V.flyLen+'"', -13, '#e65100');
+  drawDim(ctx, ox, oy-13, ox+W, oy-13, '1.5–2"', -11, '#c62828');
+
+  drawCutSewKey(ctx, ox+W+20, oy+10);
+
+  drawLegend(ctx, 'FLY / FRAIZI', [
+    ['Urefu', V.flyLen+'"', '#e65100'],
+    ['Upana', '1.5–2"', '#c62828'],
+    ['Idadi', '1 au 2', '#1b5e20'],
+    ['Posho', V.posho+'"', '#5d4037']
+  ], ox+W+20, oy+50);
+
+  L(ctx, 'Kata 1–2  •  Shikamana na mbele', ox, oy+H+28, '#1b5e20', '10px');
+}
+
+/* ========== POCKETS ========== */
+function drawPocket(ctx,V){
+  const s=11;
+  const ox=55, oy=55;
+
+  ctx.strokeStyle='#d7ccc8'; ctx.setLineDash([3,3]);
+  ctx.strokeRect(ox-20,oy-22, 520, 290);
+  ctx.setLineDash([]);
+  L(ctx,'KITAMBAA – kata mifuko',ox-12,oy-26,'#8d6e63','9px');
+
+  // Side pocket – CUT
+  ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2.2;
+  ctx.strokeRect(ox, oy, 6.5*s, 7*s);
+  // SEW
+  ctx.strokeStyle='#1565c0'; ctx.lineWidth=1.1; ctx.setLineDash([3,2]);
+  ctx.strokeRect(ox+4, oy+4, 6.5*s-8, 7*s-8);
+  ctx.setLineDash([]);
+  drawDim(ctx, ox, oy-13, ox+6.5*s, oy-13, '6–7"', -11, '#c62828');
+  drawDim(ctx, ox-14, oy, ox-14, oy+7*s, '6–7"', -12, '#e65100');
+  L(ctx, 'SIDE POCKET  •  Kata 2', ox+5, oy+7*s+16, '#1b5e20', '10px');
+  L(ctx, 'Weka kando ya mbele', ox+5, oy+7*s+30, '#1565c0', '9px');
+
+  // Back pocket
+  const bx=ox+200;
+  ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2.2;
+  ctx.strokeRect(bx, oy+12, 5.5*s, 6*s);
+  ctx.strokeStyle='#1565c0'; ctx.lineWidth=1.1; ctx.setLineDash([3,2]);
+  ctx.strokeRect(bx+4, oy+16, 5.5*s-8, 6*s-8);
+  ctx.setLineDash([]);
+  drawDim(ctx, bx, oy-1, bx+5.5*s, oy-1, '5.5–6"', -11, '#c62828');
+  drawDim(ctx, bx+5.5*s+12, oy+12, bx+5.5*s+12, oy+12+6*s, '6"', 12, '#e65100');
+  L(ctx, 'BACK POCKET  •  Kata 2', bx+2, oy+12+6*s+16, '#1b5e20', '10px');
+  L(ctx, 'Weka nyuma juu ya hips', bx+2, oy+12+6*s+30, '#1565c0', '9px');
+
+  drawCutSewKey(ctx, ox+5, oy+7*s+50);
+  L(ctx, 'Chora → Kata (mstari wa kijani) → Shona (mstari wa bluu)', ox+5, oy+7*s+75, '#5d4037', '9px');
+}
+
+function drawWaistband(ctx,V,extra){
+  const s=7;
+  const ox=70, oy=140;
+  const len=(V.raw.kiuno+extra)*s*0.55;
+  const H=3.6*s;
+  ctx.strokeStyle='#d7ccc8'; ctx.setLineDash([3,3]);
+  ctx.strokeRect(ox-25,oy-22, len+160, H+80);
+  ctx.setLineDash([]);
+  // CUT
+  ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2.2;
+  ctx.strokeRect(ox,oy,len,H);
+  // SEW / fold
+  ctx.setLineDash([4,3]); ctx.strokeStyle='#1565c0'; ctx.lineWidth=1.2;
+  ctx.beginPath(); ctx.moveTo(ox,oy+H/2); ctx.lineTo(ox+len,oy+H/2); ctx.stroke();
+  ctx.setLineDash([]);
+  drawDim(ctx,ox,oy-13,ox+len,oy-13,(V.raw.kiuno+extra).toFixed(1)+'"',-11,'#c62828');
+  drawDim(ctx,ox+len+12,oy,ox+len+12,oy+H,'3.5–4.5"',13);
+  drawCutSewKey(ctx, ox+5, oy+H+18);
+  drawLegend(ctx, 'WAISTBAND', [
+    ['Urefu', (V.raw.kiuno+extra).toFixed(1)+'"', '#c62828'],
+    ['Upana', '3.5–4.5"', '#1565c0'],
+    ['Idadi', '1', '#1b5e20'],
+    ['Kunja', 'katikati', '#1565c0']
+  ], ox+len+30, oy);
+  L(ctx,'Kata 1  •  Shona juu ya kiuno',ox+5,oy+H+48,'#1b5e20','10px');
+}
+
+/* ========== SHIRT / GAUNI / SKETI – with CUT + SEW ========== */
+function drawShirtFront(ctx,V){
+  const s=7.8, ox=85, oy=35;
+  const w=V.roboKifua*s, h=V.urefuKamili*s*0.7, bega=V.nusuBega*s;
+  const neckD=Math.max(V.shingoMbele*s*0.36,14);
+  const sa=V.posho*s*0.6;
+
+  ctx.strokeStyle='#d7ccc8'; ctx.setLineDash([3,3]);
+  ctx.strokeRect(ox-30,oy-18,w+90,h+50); ctx.setLineDash([]);
+  L(ctx,'KITAMBAA (kunja CF)',ox-22,oy-22,'#8d6e63','9px');
+
+  // CUT (outer)
+  ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2.2;
+  ctx.beginPath();
+  ctx.moveTo(ox,oy+neckD); ctx.quadraticCurveTo(ox+12,oy+neckD*0.45,ox+16,oy);
+  ctx.lineTo(ox+bega,oy+4); ctx.quadraticCurveTo(ox+bega-4,oy+40,ox+w,oy+48);
+  ctx.lineTo(ox+w+1,oy+h); ctx.lineTo(ox,oy+h); ctx.closePath(); ctx.stroke();
+
+  // SEW (inner)
+  ctx.strokeStyle='#1565c0'; ctx.lineWidth=1.15; ctx.setLineDash([4,3]);
+  ctx.beginPath();
+  ctx.moveTo(ox+sa,oy+neckD+sa*0.3); ctx.quadraticCurveTo(ox+12,oy+neckD*0.45,ox+16+sa*0.2,oy+sa);
+  ctx.lineTo(ox+bega-sa*0.2,oy+4+sa); ctx.quadraticCurveTo(ox+bega-4,oy+40,ox+w-sa,oy+48);
+  ctx.lineTo(ox+w+1-sa,oy+h-sa); ctx.lineTo(ox+sa,oy+h-sa); ctx.closePath(); ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Fold line (CF)
+  ctx.setLineDash([5,3]); ctx.strokeStyle='#1565c0'; ctx.lineWidth=1.1;
+  ctx.beginPath(); ctx.moveTo(ox-4,oy); ctx.lineTo(ox-4,oy+h); ctx.stroke(); ctx.setLineDash([]);
+  L(ctx,'KUNJA',ox-48,oy+30,'#1565c0','9px');
+
+  grain(ctx,ox+w*0.28,oy+55,oy+h-25);
+  drawDim(ctx,ox+5,oy-11,ox+bega,oy-11,V.nusuBega+'"',-11,'#e65100');
+  drawDim(ctx,ox,oy+h+11,ox+w,oy+h+11,V.roboKifua+'"',11,'#2e7d32');
+  drawDim(ctx,ox+w+14,oy+48,ox+w+14,oy+h,V.urefuKamili+'"',12,'#1565c0');
+
+  drawCutSewKey(ctx, ox+5, oy+42);
+  drawLegend(ctx, 'SHIRT MBELE', [
+    ['Bega nusu', V.nusuBega+'"', '#e65100'],
+    ['Shingo Mbele', V.shingoMbele+'"', '#c62828'],
+    ['Chest 1/4', V.roboKifua+'"', '#2e7d32'],
+    ['Urefu', V.urefuKamili+'"', '#1565c0'],
+    ['Armhole', V.armholeDepth+'"', '#6a1b9a'],
+    ['Posho', V.posho+'"', '#5d4037']
+  ], ox+w+30, oy+15);
+
+  L(ctx,'MBELE  •  Kata 1 (kimekunjwa)',ox+5,oy+h+32,'#1b5e20','10px');
+}
+
+function drawShirtBack(ctx,V){
+  const s=7.8, ox=85, oy=35;
+  const w=V.roboKifua*s, h=(+V.urefuKamili+0.5)*s*0.7, bega=V.nusuBega*s;
+  const neckD=Math.max(V.shingoNyuma*s*0.24,10);
+  const sa=V.posho*s*0.6;
+
+  ctx.strokeStyle='#d7ccc8'; ctx.setLineDash([3,3]);
+  ctx.strokeRect(ox-30,oy-18,w+90,h+50); ctx.setLineDash([]);
+  L(ctx,'KITAMBAA (kunja CB)',ox-22,oy-22,'#8d6e63','9px');
+
+  ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2.2;
+  ctx.beginPath();
+  ctx.moveTo(ox,oy+neckD); ctx.quadraticCurveTo(ox+10,oy+neckD*0.35,ox+14,oy);
+  ctx.lineTo(ox+bega,oy+3); ctx.quadraticCurveTo(ox+bega-3,oy+36,ox+w,oy+46);
+  ctx.lineTo(ox+w,oy+h); ctx.lineTo(ox,oy+h); ctx.closePath(); ctx.stroke();
+
+  ctx.strokeStyle='#1565c0'; ctx.lineWidth=1.15; ctx.setLineDash([4,3]);
+  ctx.beginPath();
+  ctx.moveTo(ox+sa,oy+neckD); ctx.quadraticCurveTo(ox+10,oy+neckD*0.35,ox+14,oy+sa);
+  ctx.lineTo(ox+bega-sa*0.2,oy+3+sa); ctx.quadraticCurveTo(ox+bega-3,oy+36,ox+w-sa,oy+46);
+  ctx.lineTo(ox+w-sa,oy+h-sa); ctx.lineTo(ox+sa,oy+h-sa); ctx.closePath(); ctx.stroke();
+  ctx.setLineDash([]);
+
+  ctx.setLineDash([5,3]); ctx.strokeStyle='#1565c0';
+  ctx.beginPath(); ctx.moveTo(ox-4,oy); ctx.lineTo(ox-4,oy+h); ctx.stroke(); ctx.setLineDash([]);
+  L(ctx,'KUNJA',ox-48,oy+28,'#1565c0','9px');
+
+  grain(ctx,ox+w*0.28,oy+50,oy+h-25);
+  drawDim(ctx,ox+5,oy-11,ox+bega,oy-11,V.nusuBega+'"',-11,'#e65100');
+  drawDim(ctx,ox,oy+h+11,ox+w,oy+h+11,V.roboKifua+'"',11,'#2e7d32');
+
+  drawCutSewKey(ctx, ox+5, oy+40);
+  drawLegend(ctx, 'SHIRT NYUMA', [
+    ['Bega nusu', V.nusuBega+'"', '#e65100'],
+    ['Shingo Nyuma', V.shingoNyuma+'"', '#c62828'],
+    ['Across Back', V.acrossBack+'"', '#6a1b9a'],
+    ['Chest 1/4', V.roboKifua+'"', '#2e7d32'],
+    ['Armhole', V.armholeDepth+'"', '#6a1b9a'],
+    ['Posho', V.posho+'"', '#5d4037']
+  ], ox+w+30, oy+15);
+
+  L(ctx,'NYUMA  •  Kata 1 (kimekunjwa)',ox+5,oy+h+32,'#1b5e20','10px');
+}
+
+function drawSleeve(ctx,V){
+  const s=9.2, ox=110, oy=40;
+  const len=V.sleeveL*s, topW=V.sleeveW*s;
+  const botW=Math.max((+V.wrist/2+V.posho)*s, (V.sleeveW-1.1)*s);
+  const sa=V.posho*s*0.55;
+
+  ctx.strokeStyle='#d7ccc8'; ctx.setLineDash([3,3]);
+  ctx.strokeRect(ox-30,oy-22,topW+100,len+75); ctx.setLineDash([]);
+  L(ctx,'KITAMBAA',ox-20,oy-26,'#8d6e63','9px');
+
+  // CUT
+  ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2.2;
+  ctx.beginPath();
+  ctx.moveTo(ox,oy+20); ctx.quadraticCurveTo(ox+topW*0.28,oy-6,ox+topW*0.5,oy);
+  ctx.quadraticCurveTo(ox+topW*0.72,oy-6,ox+topW,oy+20);
+  ctx.lineTo(ox+botW+(topW-botW)/2,oy+len); ctx.lineTo(ox+(topW-botW)/2,oy+len); ctx.closePath(); ctx.stroke();
+
+  // SEW
+  ctx.strokeStyle='#1565c0'; ctx.lineWidth=1.15; ctx.setLineDash([4,3]);
+  ctx.beginPath();
+  ctx.moveTo(ox+sa,oy+20); ctx.quadraticCurveTo(ox+topW*0.28,oy-6+sa,ox+topW*0.5,oy+sa);
+  ctx.quadraticCurveTo(ox+topW*0.72,oy-6+sa,ox+topW-sa,oy+20);
+  ctx.lineTo(ox+botW+(topW-botW)/2-sa*0.3,oy+len-sa); ctx.lineTo(ox+(topW-botW)/2+sa*0.3,oy+len-sa); ctx.closePath(); ctx.stroke();
+  ctx.setLineDash([]);
+
+  grain(ctx,ox+topW*0.5,oy+28,oy+len-20);
+  drawDim(ctx,ox-18,oy+20,ox-18,oy+len,V.sleeveL+'"',-13,'#1565c0');
+  drawDim(ctx,ox,oy+len+12,ox+topW,oy+len+12,V.sleeveW+'"',11,'#2e7d32');
+  drawDim(ctx,ox+(topW-botW)/2,oy+len+26,ox+(topW-botW)/2+botW,oy+len+26,V.wrist+'"',11,'#7b1fa2');
+
+  drawCutSewKey(ctx, ox+5, oy+len*0.4);
+  drawLegend(ctx, 'MKONO', [
+    ['Kwapa nusu', V.sleeveW+'"', '#c62828'],
+    ['Kwapa kamili', V.kwapa+'"', '#c62828'],
+    ['Bicep', V.bicep+'"', '#e65100'],
+    ['Wrist/Cuff', V.wrist+'"', '#7b1fa2'],
+    ['Urefu', V.sleeveL+'"', '#1565c0'],
+    ['Armhole', V.armholeDepth+'"', '#6a1b9a']
+  ], ox+topW+25, oy+10);
+
+  L(ctx,'MKONO  •  Kata 2',ox+15,oy+len*0.55,'#1b5e20','10px');
+}
+
+function drawCollar(ctx,V){
+  const s=8.5, ox=100, oy=80;
+  const len=V.collarL*s, H=3.2*s;
+  ctx.strokeStyle='#d7ccc8'; ctx.setLineDash([3,3]);
+  ctx.strokeRect(ox-30,oy-25,len+160,H+110); ctx.setLineDash([]);
+  L(ctx,'KITAMBAA',ox-20,oy-28,'#8d6e63','9px');
+
+  // CUT collar
+  ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2.2;
+  ctx.beginPath(); ctx.moveTo(ox,oy+H); ctx.lineTo(ox+14,oy); ctx.lineTo(ox+len-14,oy); ctx.lineTo(ox+len,oy+H); ctx.closePath(); ctx.stroke();
+  // SEW
+  ctx.strokeStyle='#1565c0'; ctx.lineWidth=1.15; ctx.setLineDash([4,3]);
+  ctx.beginPath(); ctx.moveTo(ox+5,oy+H-3); ctx.lineTo(ox+16,oy+4); ctx.lineTo(ox+len-16,oy+4); ctx.lineTo(ox+len-5,oy+H-3); ctx.closePath(); ctx.stroke();
+  ctx.setLineDash([]);
+  // Stand
+  ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2;
+  ctx.strokeRect(ox+10,oy+H+22,len-20,2.2*s);
+  ctx.strokeStyle='#1565c0'; ctx.lineWidth=1.1; ctx.setLineDash([3,2]);
+  ctx.strokeRect(ox+14,oy+H+26,len-28,2.2*s-8); ctx.setLineDash([]);
+
+  drawDim(ctx,ox,oy-14,ox+len,oy-14,V.collarL+'"',-11,'#c62828');
+  drawCutSewKey(ctx, ox+5, oy+H+55);
+  drawLegend(ctx, 'COLLAR + STAND', [
+    ['Shingo Mbele', V.shingoMbele+'"', '#c62828'],
+    ['Shingo Nyuma', V.shingoNyuma+'"', '#c62828'],
+    ['Jumla', V.shingoTotal+'"', '#c62828'],
+    ['Urefu collar', V.collarL+'"', '#1565c0'],
+    ['Idadi', '2+1', '#1b5e20']
+  ], ox+len+25, oy);
+  L(ctx,'COLLAR juu  •  STAND chini',ox+15,oy+H/2+4,'#1b5e20','10px');
+}
+
+function drawYoke(ctx,V){
+  const s=8.5, ox=110, oy=100;
+  const W=(V.raw.mabega+1)*s*0.8, H=4.2*s;
+  ctx.strokeStyle='#d7ccc8'; ctx.setLineDash([3,3]);
+  ctx.strokeRect(ox-25,oy-22,W+150,H+60); ctx.setLineDash([]);
+  L(ctx,'KITAMBAA',ox-15,oy-26,'#8d6e63','9px');
+
+  ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2.2;
+  ctx.beginPath();
+  ctx.moveTo(ox,oy+12); ctx.quadraticCurveTo(ox+18,oy+4,ox+28,oy);
+  ctx.lineTo(ox+W-28,oy); ctx.quadraticCurveTo(ox+W-18,oy+4,ox+W,oy+12);
+  ctx.lineTo(ox+W,oy+H); ctx.lineTo(ox,oy+H); ctx.closePath(); ctx.stroke();
+
+  ctx.strokeStyle='#1565c0'; ctx.lineWidth=1.15; ctx.setLineDash([4,3]);
+  ctx.beginPath();
+  ctx.moveTo(ox+5,oy+14); ctx.quadraticCurveTo(ox+18,oy+6,ox+28,oy+4);
+  ctx.lineTo(ox+W-28,oy+4); ctx.quadraticCurveTo(ox+W-18,oy+6,ox+W-5,oy+14);
+  ctx.lineTo(ox+W-5,oy+H-4); ctx.lineTo(ox+5,oy+H-4); ctx.closePath(); ctx.stroke();
+  ctx.setLineDash([]);
+
+  grain(ctx,ox+W/2,oy+22,oy+H-10);
+  drawDim(ctx,ox+W+12,oy,ox+W+12,oy+H,'4–5"',12);
+  drawCutSewKey(ctx, ox+5, oy+H+18);
+  drawLegend(ctx, 'YOKE', [
+    ['Bega', (V.raw.mabega+1).toFixed(1)+'"', '#e65100'],
+    ['Across Back', V.acrossBack+'"', '#6a1b9a'],
+    ['Urefu', '4–5"', '#1565c0'],
+    ['Idadi', '1 au 2', '#1b5e20']
+  ], ox+W+30, oy);
+  L(ctx,'YOKE  •  Kata 1–2',ox+W/2-30,oy+H/2+4,'#1b5e20','10px');
+}
+
+function drawGauniFront(ctx,V){
+  const s=6.8, ox=85, oy=32;
+  const wK=V.roboKifua*s, wKi=V.roboKiuno*s, wH=V.roboHipsi*s;
+  const h=V.urefuKamili*s*0.68, bega=V.nusuBega*s;
+  const neckD=Math.max(V.shingoMbele*s*0.32,13);
+  const sa=V.posho*s*0.55;
+
+  ctx.strokeStyle='#d7ccc8'; ctx.setLineDash([3,3]);
+  ctx.strokeRect(ox-28,oy-16,wH+95,h+50); ctx.setLineDash([]);
+  L(ctx,'KITAMBAA (kunja)',ox-18,oy-20,'#8d6e63','9px');
+
+  // CUT
+  ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2.2;
+  ctx.beginPath();
+  ctx.moveTo(ox,oy+neckD); ctx.quadraticCurveTo(ox+12,oy+neckD*0.45,ox+16,oy);
+  ctx.lineTo(ox+bega,oy+4); ctx.quadraticCurveTo(ox+bega-3,oy+36,ox+wK,oy+46);
+  ctx.lineTo(ox+wKi,oy+95); ctx.lineTo(ox+wH,oy+135); ctx.lineTo(ox+wH+3,oy+h); ctx.lineTo(ox,oy+h); ctx.closePath(); ctx.stroke();
+
+  // SEW
+  ctx.strokeStyle='#1565c0'; ctx.lineWidth=1.15; ctx.setLineDash([4,3]);
+  ctx.beginPath();
+  ctx.moveTo(ox+sa,oy+neckD); ctx.quadraticCurveTo(ox+12,oy+neckD*0.45,ox+16,oy+sa);
+  ctx.lineTo(ox+bega-sa*0.2,oy+4+sa); ctx.quadraticCurveTo(ox+bega-3,oy+36,ox+wK-sa,oy+46);
+  ctx.lineTo(ox+wKi-sa,oy+95); ctx.lineTo(ox+wH-sa,oy+135); ctx.lineTo(ox+wH+3-sa,oy+h-sa); ctx.lineTo(ox+sa,oy+h-sa); ctx.closePath(); ctx.stroke();
+  ctx.setLineDash([]);
+
+  ctx.setLineDash([5,3]); ctx.strokeStyle='#1565c0';
+  ctx.beginPath(); ctx.moveTo(ox-4,oy); ctx.lineTo(ox-4,oy+h); ctx.stroke(); ctx.setLineDash([]);
+  L(ctx,'KUNJA',ox-45,oy+25,'#1565c0','9px');
+
+  grain(ctx,ox+wH*0.26,oy+60,oy+h-22);
+  drawDim(ctx,ox+4,oy-11,ox+bega,oy-11,V.nusuBega+'"',-11,'#e65100');
+  drawDim(ctx,ox,oy+h+11,ox+wH,oy+h+11,V.roboHipsi+'"',11,'#2e7d32');
+
+  drawCutSewKey(ctx, ox+5, oy+40);
+  drawLegend(ctx, 'GAUNI MBELE', [
+    ['Bega', V.nusuBega+'"', '#e65100'],
+    ['Shingo', V.shingoMbele+'"', '#c62828'],
+    ['Chest 1/4', V.roboKifua+'"', '#2e7d32'],
+    ['Kiuno 1/4', V.roboKiuno+'"', '#c62828'],
+    ['Hips 1/4', V.roboHipsi+'"', '#e65100'],
+    ['Urefu', V.urefuKamili+'"', '#1565c0']
+  ], ox+wH+28, oy+15);
+
+  L(ctx,'MBELE  •  Kata 1 (kimekunjwa)',ox+5,oy+h+32,'#1b5e20','10px');
+}
+
+function drawSketiFront(ctx,V){
+  const s=8, ox=95, oy=40;
+  const wKi=V.roboKiuno*s, wH=V.roboHipsi*s, h=V.urefuKamili*s*0.78;
+  const sa=V.posho*s*0.55;
+
+  ctx.strokeStyle='#d7ccc8'; ctx.setLineDash([3,3]);
+  ctx.strokeRect(ox-28,oy-16,wH+95,h+50); ctx.setLineDash([]);
+  L(ctx,'KITAMBAA (kunja)',ox-18,oy-20,'#8d6e63','9px');
+
+  // CUT
+  ctx.strokeStyle='#1b5e20'; ctx.lineWidth=2.2;
+  ctx.beginPath();
+  ctx.moveTo(ox,oy); ctx.lineTo(ox+wKi,oy); ctx.lineTo(ox+wH,oy+48);
+  ctx.lineTo(ox+wH+5,oy+h); ctx.lineTo(ox,oy+h); ctx.closePath(); ctx.stroke();
+
+  // SEW
+  ctx.strokeStyle='#1565c0'; ctx.lineWidth=1.15; ctx.setLineDash([4,3]);
+  ctx.beginPath();
+  ctx.moveTo(ox+sa,oy+sa); ctx.lineTo(ox+wKi-sa*0.3,oy+sa); ctx.lineTo(ox+wH-sa,oy+48);
+  ctx.lineTo(ox+wH+5-sa,oy+h-sa); ctx.lineTo(ox+sa,oy+h-sa); ctx.closePath(); ctx.stroke();
+  ctx.setLineDash([]);
+
+  ctx.setLineDash([5,3]); ctx.strokeStyle='#1565c0';
+  ctx.beginPath(); ctx.moveTo(ox-4,oy); ctx.lineTo(ox-4,oy+h); ctx.stroke(); ctx.setLineDash([]);
+  L(ctx,'KUNJA',ox-45,oy+30,'#1565c0','9px');
+
+  grain(ctx,ox+wH*0.28,oy+45,oy+h-22);
+  drawDim(ctx,ox,oy-12,ox+wKi,oy-12,V.roboKiuno+'"',-11,'#c62828');
+  drawDim(ctx,ox,oy+h+11,ox+wH,oy+h+11,V.roboHipsi+'"',11,'#2e7d32');
+
+  drawCutSewKey(ctx, ox+5, oy+35);
+  drawLegend(ctx, 'SKETI MBELE', [
+    ['Kiuno 1/4', V.roboKiuno+'"', '#c62828'],
+    ['Hips 1/4', V.roboHipsi+'"', '#e65100'],
+    ['Urefu', V.urefuKamili+'"', '#1565c0'],
+    ['Posho', V.posho+'"', '#5d4037'],
+    ['Idadi', '1 kimekunjwa', '#1b5e20']
+  ], ox+wH+28, oy+15);
+
+  L(ctx,'SKETI MBELE  •  Kata 1 (kimekunjwa)',ox+5,oy+h+32,'#1b5e20','10px');
+}
+
+function drawPiece(pieceId){
+  const {ctx}=clearCanvas();
+  const titleEl=document.getElementById('pieceTitle');
+  const detailEl=document.getElementById('vipimoDetail');
+  document.querySelectorAll('.piece-btn').forEach(b=>b.classList.remove('active'));
+  const btn=document.querySelector('[data-piece="'+pieceId+'"]');
+  if(btn)btn.classList.add('active');
+  const pieces=getPieces(currentAina);
+  const piece=pieces.find(p=>p.id===pieceId);
+  titleEl.textContent=piece?piece.name+' – '+piece.desc:pieceId;
+
+  let rows=[], highlight='';
+
+  if(currentAina==='suruali'||currentAina==='kaptula'){
+    const isShort=currentAina==='kaptula';
+    if(pieceId==='front'){
+      drawPantFront(ctx,V,isShort);
+      rows=[
+        ['KIUNO (1/4 + posho)',V.roboKiuno+'"'],
+        ['HIPSI (1/4 + posho)',V.roboHipsi+'"'],
+        ['Waist → Hip',V.waistToHip+'"'],
+        ['Crotch / Rise (mbele)',V.crotchFront+'"'],
+        ['Inseam (ndani)',V.inseamFull+'"'],
+        ['Paja / Thigh (nusu)',V.thighW+'"'],
+        ['Goti / Knee (nusu)',V.kneeW+'"'],
+        ['Urefu hadi Goti',V.urefuGoti+'"'],
+        ['Upana wa Chini (Hem)',V.hemW+'"'],
+        ['Urefu wa Fly',V.flyLen+'"'],
+        ['Urefu wa Suruali',V.raw.urefu+'"'],
+        ['Idadi ya kukata','2 (kitambaa wazi)']
+      ];
+      highlight='Kiuno '+V.roboKiuno+'" | Hips '+V.roboHipsi+'" | Paja '+V.thighW+'" | Goti '+V.kneeW+'" | Fly '+V.flyLen+'"';
+    } else if(pieceId==='back'){
+      drawPantBack(ctx,V,isShort);
+      rows=[
+        ['KIUNO (1/4)',(+V.roboKiuno+0.35).toFixed(1)+'"'],
+        ['HIPSI (1/4)',(+V.roboHipsi+0.9).toFixed(1)+'"'],
+        ['Waist → Hip',V.waistToHip+'"'],
+        ['Crotch (nyuma +1")',V.crotchBack+'"'],
+        ['Paja / Thigh',V.thighW+'"'],
+        ['Goti / Knee',(+V.kneeW+0.3).toFixed(1)+'"'],
+        ['Upana wa Chini',(+V.hemW+0.4).toFixed(1)+'"'],
+        ['Urefu',V.raw.urefu+'"'],
+        ['Idadi','2']
+      ];
+      highlight='Hips '+(+V.roboHipsi+0.9).toFixed(1)+'" | Crotch '+V.crotchBack+'" | Paja '+V.thighW+'" | Goti '+(+V.kneeW+0.3).toFixed(1)+'"';
+    } else if(pieceId==='waistband'){
+      drawWaistband(ctx,V,2);
+      rows=[['Urefu',(V.raw.kiuno+2).toFixed(1)+'"'],['Upana','3.5–4.5"'],['Idadi','1']];
+    } else if(pieceId==='fly'){
+      drawFly(ctx,V);
+      rows=[['Urefu wa Fly',V.flyLen+'"'],['Upana','1.5–2"'],['Idadi','1 au 2']];
+      highlight='Fly / Fraizi: '+V.flyLen+'"';
+    } else if(pieceId==='pocket'){
+      drawPocket(ctx,V);
+      rows=[['Side Pocket','6–7" × 6–7"'],['Back Pocket','5.5–6" × 6"'],['Idadi','2 side + 2 back']];
+    }
+  } else if(currentAina==='shirt'){
+    if(pieceId==='front'){drawShirtFront(ctx,V);rows=[['Bega (nusu)',V.nusuBega+'"'],['Shingo Mbele',V.shingoMbele+'"'],['Upana / Chest 1/4',V.roboKifua+'"'],['Urefu',V.urefuKamili+'"'],['Armhole Depth',V.armholeDepth+'"'],['Idadi','1 kimekunjwa']];highlight='Bega '+V.nusuBega+'" | Shingo '+V.shingoMbele+'" | Chest '+V.roboKifua+'"';}
+    else if(pieceId==='back'){drawShirtBack(ctx,V);rows=[['Bega (nusu)',V.nusuBega+'"'],['Shingo Nyuma',V.shingoNyuma+'"'],['Upana',V.roboKifua+'"'],['Across Back',V.acrossBack+'"'],['Armhole Depth',V.armholeDepth+'"'],['Idadi','1']];highlight='Across Back '+V.acrossBack+'" | Shingo '+V.shingoNyuma+'"';}
+    else if(pieceId==='sleeve'){drawSleeve(ctx,V);rows=[['Kwapa nusu',V.sleeveW+'"'],['Kwapa kamili',V.kwapa+'"'],['Bicep',V.bicep+'"'],['Wrist / Cuff',V.wrist+'"'],['Urefu mkono',V.sleeveL+'"'],['Armhole Depth',V.armholeDepth+'"'],['Idadi','2']];highlight='Kwapa '+V.kwapa+'" | Bicep '+V.bicep+'" | Wrist '+V.wrist+'"';}
+    else if(pieceId==='collar'){drawCollar(ctx,V);rows=[['Shingo Mbele',V.shingoMbele+'"'],['Shingo Nyuma',V.shingoNyuma+'"'],['Jumla',V.shingoTotal+'"'],['Urefu collar',V.collarL+'"']];}
+    else if(pieceId==='yoke'){drawYoke(ctx,V);rows=[['Bega',(V.raw.mabega+1).toFixed(1)+'"'],['Across Back',V.acrossBack+'"'],['Urefu','4–5"']];}
+  } else if(currentAina==='gauni'){
+    if(pieceId==='front'){drawGauniFront(ctx,V);rows=[['Bega',V.nusuBega+'"'],['Shingo',V.shingoMbele+'"'],['Hipsi',V.roboHipsi+'"'],['Urefu',V.urefuKamili+'"']];}
+    else if(pieceId==='back'){drawGauniFront(ctx,V);rows=[['Hipsi + zipu',(V.roboHipsi+1).toFixed(1)+'"'],['Urefu',V.urefuKamili+'"']];}
+    else if(pieceId==='sleeve'){drawSleeve(ctx,V);rows=[['Kwapa',V.kwapa+'"'],['Urefu',V.sleeveL+'"']];}
+    else if(pieceId==='waistband'){drawWaistband(ctx,V,3);rows=[['Urefu',(V.raw.kiuno+3).toFixed(1)+'"']];}
+  } else if(currentAina==='sketi'){
+    if(pieceId==='front'){drawSketiFront(ctx,V);rows=[['Kiuno',V.roboKiuno+'"'],['Hipsi',V.roboHipsi+'"'],['Urefu',V.urefuKamili+'"']];}
+    else if(pieceId==='back'){drawSketiFront(ctx,V);rows=[['Hipsi',(V.roboHipsi+1).toFixed(1)+'"'],['Urefu',V.urefuKamili+'"']];}
+    else if(pieceId==='waistband'){drawWaistband(ctx,V,2);rows=[['Urefu',(V.raw.kiuno+2).toFixed(1)+'"']];}
+  }
+
+  let html='<h4>📏 Vipimo + jinsi ya kukata</h4>';
+  if(highlight) html+='<div class="highlight-box"><strong>Muhimu:</strong> '+highlight+'</div>';
+  html+='<table>';
+  rows.forEach(r=>{html+='<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>';});
+  html+='</table><div class="note">💡 <b>Kijani = KATA</b> • <b>Bluu = SHONA (uzi)</b> • Fit: <b>'+(V.fit||'regular')+'</b> • Posho '+V.posho+'" • Unit: '+(currentUnit==='cm'?'cm':'in')+'</div>';
+  detailEl.innerHTML=html;
+}
+
+function buildPiecesList(){
+  const list=document.getElementById('piecesList');
+  const pieces=getPieces(currentAina);
+  list.innerHTML='';
+  pieces.forEach(p=>{
+    const btn=document.createElement('button');
+    btn.className='piece-btn'; btn.dataset.piece=p.id;
+    btn.innerHTML=p.name+'<small>'+p.desc+'</small>';
+    btn.onclick=()=>requestAnimationFrame(()=>drawPiece(p.id));
+    list.appendChild(btn);
+  });
+  // Draw first piece async – huzuia UI kukwama
+  if(pieces.length){
+    requestAnimationFrame(()=>drawPiece(pieces[0].id));
+  }
+}
+
+function badilishaAina(){
+  currentAina=document.getElementById('ainaNguo').value;
+  const shirt=document.getElementById('vipimoShirt');
+  const miguu=document.getElementById('vipimoMiguu');
+  const labelUrefu=document.getElementById('labelUrefu');
+  const urefu=document.getElementById('urefu');
+  shirt.classList.add('hidden'); miguu.classList.add('hidden');
+  if(currentAina==='shirt'||currentAina==='gauni'){
+    shirt.classList.remove('hidden');
+    labelUrefu.textContent=currentAina==='shirt'?'Urefu wa Shirt:':'Urefu wa Nguo:';
+    urefu.value=currentAina==='shirt'?28:40;
+  } else if(currentAina==='kaptula'){
+    miguu.classList.remove('hidden');
+    labelUrefu.textContent='Urefu wa Kaptula:';
+    urefu.value=18; document.getElementById('inseam').value=10;
+    if(document.getElementById('urefuGoti')) document.getElementById('urefuGoti').value=12;
+    if(document.getElementById('goti')) document.getElementById('goti').value=17;
+  } else if(currentAina==='suruali'){
+    miguu.classList.remove('hidden');
+    labelUrefu.textContent='Urefu wa Suruali:';
+    urefu.value=40; document.getElementById('inseam').value=30;
+    if(document.getElementById('urefuGoti')) document.getElementById('urefuGoti').value=22;
+    if(document.getElementById('goti')) document.getElementById('goti').value=16;
+  } else {
+    labelUrefu.textContent='Urefu wa Sketi:'; urefu.value=22;
+  }
+  updateAll();
+}
+
+let _updateTimer=null;
+function scheduleUpdate(){
+  // Debounce – huzuia kukwama wakati wa kuandika
+  if(_updateTimer) clearTimeout(_updateTimer);
+  _updateTimer=setTimeout(function(){
+    try{
+      V=calcValues(getInputs());
+      updateFabric();
+    }catch(e){}
+  }, 400);
+}
+
+function updateAll(){
+  if(_updateTimer){ clearTimeout(_updateTimer); _updateTimer=null; }
+  V=calcValues(getInputs());
+  buildPiecesList();
+  updateFabric();
+}
+
+function applyPreset(){
+  const key=document.getElementById('sizePreset').value || document.getElementById('sizePreset2')?.value;
+  if(!key||!PRESETS[key]) return;
+  const p=PRESETS[key];
+  Object.keys(p).forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.value = currentUnit==='cm' ? +(p[id]*2.54).toFixed(1) : p[id];
+  });
+  document.getElementById('sizePreset').value=key;
+  if(document.getElementById('sizePreset2')) document.getElementById('sizePreset2').value=key;
+  // stay on "new client" unless name already set – user will edit then save
+  updateAll();
+}
+
+function toggleUnit(){
+  const newU=document.getElementById('unitSelect').value;
+  if(newU===currentUnit) return;
+  const ids=['mabega','kifua','kiuno','hipsi','urefu','posho','shingoMbele','shingoNyuma','kwapa','urefuMkono','bicep','wrist','acrossBack','armholeDepth','inseam','crotch','paja','goti','urefuGoti','hemWidth','flyLen','waistToHip'];
+  ids.forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el) return;
+    let v=+el.value;
+    if(currentUnit==='in' && newU==='cm') el.value=+(v*2.54).toFixed(1);
+    else if(currentUnit==='cm' && newU==='in') el.value=+(v/2.54).toFixed(2);
+  });
+  // posho default adjust
+  const pos=document.getElementById('posho');
+  if(pos && newU==='cm' && +pos.value<2) pos.value=2;
+  if(pos && newU==='in' && +pos.value>2) pos.value=0.75;
+  currentUnit=newU;
+  document.getElementById('unitBadge').textContent=newU;
+  // getInputs always stores inches internally: convert on read when cm
+  updateAll();
+}
+
+// Override getInputs to convert cm → inches for calculations
+const _getInputsOrig = null;
+(function(){
+  const orig=getInputs;
+  getInputs=function(){
+    const i=orig();
+    if(currentUnit==='cm'){
+      const keys=Object.keys(i);
+      keys.forEach(k=>{ if(typeof i[k]==='number') i[k]=+(i[k]/2.54).toFixed(3); });
+    }
+    return i;
+  };
+})();
+
+function updateFabric(){
+  const el=document.getElementById('fabricText');
+  if(!el||!V.raw) return;
+  const fw=+document.getElementById('fabricWidth').value||60;
+  const u=currentUnit==='cm'?' cm':' in';
+  let yards=0, meters=0, note='';
+  if(currentAina==='suruali'){
+    yards = V.raw.urefu*2/36 + 0.3;
+    note='Suruali: ~2×urefu + posho (miguu 2 + waistband)';
+  } else if(currentAina==='kaptula'){
+    yards = V.raw.urefu*2/36 + 0.25;
+    note='Kaptula: urefu mfupi';
+  } else if(currentAina==='shirt'){
+    yards = (V.raw.urefu + V.raw.urefuMkono)/36 + 0.4;
+    note='Shirt: body + sleeves + collar';
+  } else if(currentAina==='gauni'){
+    yards = V.raw.urefu*2/36 + 0.5;
+    note='Gauni: mbele+nyuma + mikono';
+  } else {
+    yards = V.raw.urefu/36 + 0.25;
+    note='Sketi: 1 panel fold + waistband';
+  }
+  if(fw<50) yards*=1.15; // narrower fabric needs more length
+  meters=yards*0.9144;
+  const lenIn=+(yards*36).toFixed(0);
+  const lenCm=+(meters*100).toFixed(0);
+  el.innerHTML = (currentUnit==='cm'
+    ? `<b>${lenCm} cm</b> (~${meters.toFixed(2)} m)`
+    : `<b>${lenIn}"</b> (~${yards.toFixed(2)} yards)`)
+    + `<br><small>${note} • Kitambaa ${fw}"</small>`;
+}
+
+function saveProfile(){
+  const name=(document.getElementById('profileName').value||'').trim();
+  if(!name){
+    alert('⚠️ Andika jina la mteja kwanza (mf. Mama Asha), kisha hifadhi.');
+    document.getElementById('profileName').focus();
+    return;
+  }
+  const ids=['mabega','kifua','kiuno','hipsi','urefu','posho','shingoMbele','shingoNyuma','kwapa','urefuMkono','bicep','wrist','acrossBack','armholeDepth','inseam','crotch','paja','goti','urefuGoti','hemWidth','flyLen','waistToHip'];
+  const display={};
+  ids.forEach(id=>{ const el=document.getElementById(id); if(el) display[id]=el.value; });
+  const data={
+    name,
+    phone:(document.getElementById('profilePhone')?.value||'').trim(),
+    address:(document.getElementById('profileAddress')?.value||'').trim(),
+    aina:currentAina,
+    unit:currentUnit,
+    fit:document.getElementById('fitSelect').value,
+    size:document.getElementById('sizePreset').value||document.getElementById('sizePreset2')?.value||'',
+    display,
+    savedAt:new Date().toISOString()
+  };
+  let list=JSON.parse(localStorage.getItem('fundiProfiles')||'[]');
+  // If editing existing profile (loaded), replace by original key so rename works on save too
+  if(currentProfileKey){
+    list=list.filter(p=>p.name.toLowerCase()!==currentProfileKey.toLowerCase());
+  }
+  // also avoid duplicate of new name
+  list=list.filter(p=>p.name.toLowerCase()!==name.toLowerCase());
+  list.unshift(data);
+  if(list.length>20) list=list.slice(0,20);
+  localStorage.setItem('fundiProfiles',JSON.stringify(list));
+  currentProfileKey=name;
+  refreshProfileList();
+  const sel=document.getElementById('savedSelect');
+  if(sel) sel.value=name;
+  alert('✅ Vipimo vya "'+name+'" vimehifadhiwa.');
+}
+
+function renameProfile(){
+  const sel=document.getElementById('savedSelect');
+  const oldName=currentProfileKey || (sel && sel.value) || '';
+  if(!oldName){
+    alert('⚠️ Chagua mteja aliyehifadhiwa kwanza (orodha juu), kisha hariri jina.');
+    return;
+  }
+  const input=document.getElementById('profileName');
+  const newName=(input.value||'').trim();
+  if(!newName){
+    alert('⚠️ Andika jina jipya kwenye kisanduku, kisha bonyeza ✏️ Hariri jina.');
+    input.focus();
+    return;
+  }
+  if(newName.toLowerCase()===oldName.toLowerCase()){
+    alert('Jina ni sawa – hakuna mabadiliko.');
+    return;
+  }
+  let list=JSON.parse(localStorage.getItem('fundiProfiles')||'[]');
+  const idx=list.findIndex(p=>p.name===oldName || p.name.toLowerCase()===oldName.toLowerCase());
+  if(idx<0){
+    alert('Profile haikupatikana. Pakua mteja tena kisha jaribu.');
+    return;
+  }
+  // check duplicate
+  if(list.some((p,i)=>i!==idx && p.name.toLowerCase()===newName.toLowerCase())){
+    alert('⚠️ Jina "'+newName+'" tayari lipo. Chagua jina lingine.');
+    return;
+  }
+  list[idx].name=newName;
+  list[idx].savedAt=new Date().toISOString();
+  localStorage.setItem('fundiProfiles',JSON.stringify(list));
+  currentProfileKey=newName;
+  input.value=newName;
+  refreshProfileList();
+  if(sel) sel.value=newName;
+  alert('✅ Jina limebadilishwa:\n"'+oldName+'" → "'+newName+'"');
+}
+
+function loadFromSelect(){
+  const name=document.getElementById('savedSelect').value;
+  if(!name){
+    currentProfileKey='';
+    return;
+  }
+  applyProfileByName(name);
+}
+
+function applyProfileByName(name){
+  const list=JSON.parse(localStorage.getItem('fundiProfiles')||'[]');
+  const p=list.find(x=>x.name===name);
+  if(!p) return;
+  currentProfileKey=p.name;
+  document.getElementById('profileName').value=p.name;
+  if(document.getElementById('profilePhone')) document.getElementById('profilePhone').value=p.phone||'';
+  if(document.getElementById('profileAddress')) document.getElementById('profileAddress').value=p.address||'';
+  if(document.getElementById('savedSelect')) document.getElementById('savedSelect').value=p.name;
+  document.getElementById('ainaNguo').value=p.aina||'suruali';
+  if(p.unit){
+    document.getElementById('unitSelect').value=p.unit;
+    currentUnit=p.unit;
+    document.getElementById('unitBadge').textContent=p.unit;
+  }
+  if(p.fit) document.getElementById('fitSelect').value=p.fit;
+  if(p.size){
+    document.getElementById('sizePreset').value=p.size;
+    if(document.getElementById('sizePreset2')) document.getElementById('sizePreset2').value=p.size;
+  }
+  const src=p.display||{};
+  Object.keys(src).forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.value=src[id];
+  });
+  // switch garment type UI then redraw with saved numbers
+  currentAina=p.aina||'suruali';
+  badilishaAina();
+  // re-apply display values after badilisha may reset some defaults
+  Object.keys(src).forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.value=src[id];
+  });
+  updateAll();
+}
+
+function refreshProfileList(){
+  const list=JSON.parse(localStorage.getItem('fundiProfiles')||'[]');
+  const sel=document.getElementById('savedSelect');
+  const box=document.getElementById('savedProfiles');
+  if(sel){
+    const cur=sel.value;
+    sel.innerHTML='<option value="">— Mteja mpya / chagua —</option>';
+    list.forEach(p=>{
+      const opt=document.createElement('option');
+      opt.value=p.name;
+      opt.textContent=p.name+(p.size?' ('+p.size+')':'')+(p.aina?' · '+p.aina:'');
+      sel.appendChild(opt);
+    });
+    if(cur) sel.value=cur;
+  }
+  if(box){
+    if(!list.length){ box.textContent='Hakuna bado – hifadhi mteja baada ya kuweka jina.'; return; }
+    box.innerHTML=list.map(p=>
+      `<div style="display:flex;justify-content:space-between;align-items:center;padding:3px 0;border-bottom:1px solid #c5cae9">
+        <span style="cursor:pointer;color:#1a237e" onclick="applyProfileByName('${p.name.replace(/'/g,"\\'")}')">👤 ${p.name} <small style="color:#7986cb">${p.size||''} ${p.phone?('· '+p.phone):''}</small></span>
+        <button onclick="deleteProfile('${p.name.replace(/'/g,"\\'")}')" style="font-size:10px;padding:2px 6px;border:1px solid #ef9a9a;background:#ffebee;color:#c62828;border-radius:4px;cursor:pointer">Futa</button>
+      </div>`
+    ).join('');
+  }
+}
+
+function deleteProfile(name){
+  if(!confirm('Futa profile ya "'+name+'"?')) return;
+  let list=JSON.parse(localStorage.getItem('fundiProfiles')||'[]');
+  list=list.filter(p=>p.name!==name);
+  localStorage.setItem('fundiProfiles',JSON.stringify(list));
+  if(document.getElementById('profileName').value===name) document.getElementById('profileName').value='';
+  if(currentProfileKey===name) currentProfileKey='';
+  refreshProfileList();
+}
+
+function quickLoad(name){ applyProfileByName(name); }
+function loadProfile(){ /* kept for compatibility – use dropdown */ loadFromSelect(); }
+
+function clearAll(){
+  if(!confirm('Futa vipimo vyote na kurudisha default?')) return;
+  document.getElementById('profileName').value='';
+  if(document.getElementById('profilePhone')) document.getElementById('profilePhone').value='';
+  if(document.getElementById('profileAddress')) document.getElementById('profileAddress').value='';
+  document.getElementById('sizePreset').value='';
+  if(document.getElementById('sizePreset2')) document.getElementById('sizePreset2').value='';
+  if(document.getElementById('savedSelect')) document.getElementById('savedSelect').value='';
+  currentProfileKey='';
+  ['mabega','kifua','kiuno','hipsi','urefu','posho','inseam','crotch','paja','goti','hemWidth','flyLen'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.value=el.defaultValue||el.value;
+  });
+  badilishaAina();
+}
+
+function downloadPNG(){
+  const c=document.getElementById('mchoroCanvas');
+  const a=document.createElement('a');
+  a.download='Luambano-FundiMchoro-'+(currentAina)+'-'+(lastPieceId||'pattern')+'.png';
+  a.href=c.toDataURL('image/png');
+  a.click();
+}
+
+// track last drawn piece
+const _drawPieceOrig=drawPiece;
+drawPiece=function(id){ lastPieceId=id; _drawPieceOrig(id); };
+
+function showSizeChart(type, btn){
+  document.querySelectorAll('.chart-tabs button').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  const el=document.getElementById('sizeChartContent');
+  if(type==='convert'){
+    el.innerHTML=`<table>
+      <tr><th>Letter</th><th>US Women</th><th>UK</th><th>EU</th><th>US Men</th></tr>
+      <tr><td>XS</td><td>0–2</td><td>4–6</td><td>32–34</td><td>—</td></tr>
+      <tr><td>S</td><td>4–6</td><td>8–10</td><td>36–38</td><td>36 / S</td></tr>
+      <tr><td>M</td><td>8–10</td><td>12–14</td><td>40–42</td><td>40 / M</td></tr>
+      <tr><td>L</td><td>12–14</td><td>16–18</td><td>44–46</td><td>42–44 / L</td></tr>
+      <tr><td>XL</td><td>16–18</td><td>20–22</td><td>48–50</td><td>46 / XL</td></tr>
+      <tr><td>XXL</td><td>20–22</td><td>24–26</td><td>52–54</td><td>48 / XXL</td></tr>
+    </table>
+    <p style="margin:6px 0 0;font-size:10px;color:#546e7a">Gusa saizi kwenye jedwali la Wanawake/Wanaume ili kujaza vipimo.</p>`;
+    return;
+  }
+  const rows=INTL[type]||INTL.women;
+  const isMen=type==='men';
+  let html=`<table><tr><th>Size</th><th>${isMen?'Chest':'Bust'}</th><th>Waist</th><th>Hip</th>${isMen?'<th>Neck</th>':''}<th>US</th><th>UK</th><th>EU</th></tr>`;
+  rows.forEach(r=>{
+    html+=`<tr onclick="applyIntlSize('${type}','${r.sz}')" title="Gusa kujaza vipimo">
+      <td><b>${r.sz}</b></td>
+      <td>${isMen?r.chest:r.bust}"</td>
+      <td>${r.waist}"</td>
+      <td>${r.hip}"</td>
+      ${isMen?`<td>${r.neck||'—'}"</td>`:''}
+      <td>${r.us}</td><td>${r.uk}</td><td>${r.eu}</td>
+    </tr>`;
+  });
+  html+='</table><p style="margin:6px 0 0;font-size:10px;color:#546e7a">💡 Gusa safu yoyote → vipimo vinaingizwa kiotomatiki (inches). Badilisha unit ikiwa unatumia cm.</p>';
+  el.innerHTML=html;
+}
+
+function applyIntlSize(gender, sz){
+  const rows=INTL[gender]||[];
+  const r=rows.find(x=>x.sz===sz);
+  if(!r) return;
+  // set unit to inches for accurate apply
+  if(currentUnit==='cm'){
+    document.getElementById('unitSelect').value='in';
+    currentUnit='in';
+    document.getElementById('unitBadge').textContent='in';
+  }
+  const chest=r.chest||r.bust;
+  document.getElementById('kifua').value=chest;
+  document.getElementById('kiuno').value=r.waist;
+  document.getElementById('hipsi').value=r.hip;
+  if(r.neck){
+    const half=+(r.neck/2).toFixed(2);
+    if(document.getElementById('shingoMbele')) document.getElementById('shingoMbele').value=half;
+    if(document.getElementById('shingoNyuma')) document.getElementById('shingoNyuma').value=half;
+  }
+  // approximate related
+  document.getElementById('mabega').value=+(chest*0.4+1).toFixed(1);
+  if(document.getElementById('paja')) document.getElementById('paja').value=+(r.hip*0.6).toFixed(1);
+  if(document.getElementById('goti')) document.getElementById('goti').value=+(r.hip*0.4).toFixed(1);
+  if(['S','M','L','XL','XXL'].includes(sz)){
+    document.getElementById('sizePreset').value=sz;
+    if(document.getElementById('sizePreset2')) document.getElementById('sizePreset2').value=sz;
+  }
+  // do not overwrite name if user already typed one
+  if(!document.getElementById('profileName').value.trim()){
+    document.getElementById('profileName').placeholder='Andika jina la mteja (size '+sz+')';
+  }
+  updateAll();
+  alert('✅ Vipimo vya '+sz+' ('+(gender==='men'?'Wanaume':'Wanawake')+') vimejazwa.');
+}
+
+window.onload=function(){
+  // Load UI first, draw pattern after short delay (smooth start)
+  refreshProfileList();
+  showGuide('suruali',document.querySelector('.tab-btn'));
+  setTimeout(function(){
+    badilishaAina();
+    showSizeChart('women', document.querySelector('.chart-tabs button'));
+  }, 50);
+};
+</script>
+</body>
+</html>
